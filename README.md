@@ -72,8 +72,6 @@ Du har nå en enkel mal som du kan bygge videre på. For å begynne å jobbe vid
 4. Dytt koden opp til ditt repository:
 ```
    git add .
-```
-```
    git commit -m'initial commit'
 ```
 (Github har endret navnet på det som tidligere het 'master' til 'main')
