@@ -32,7 +32,7 @@ https://www.stanleyulili.com/node/how-to-install-node-and-npm-on-mac-or-linux/. 
 ---
 
 
-## STEG 1: Klon og Kjør Prosjektet
+## STEG 1: Klon og kjør Prosjektet
 1. I terminalen. Finn fram til fillokasjonen hvor dere vil lagre prosjektet og klon dette repoet:
 
 ```
@@ -66,7 +66,7 @@ Du har nå en enkel mal som du kan bygge videre på. For å begynne å jobbe vid
 3. Endre git 'origin' til dit nye repository:
 
 ```
-git remote set-url origin http://github.com/{{YOUR_GITHUB_USERNAME}}/{{YOUR_REPO_NAME}}
+   git remote set-url origin http://github.com/{{YOUR_GITHUB_USERNAME}}/{{YOUR_REPO_NAME}}
 ```
 
 4. Dytt koden opp til ditt repository:
@@ -105,3 +105,17 @@ Du kan kjøre denne kommandoen siden kildekoden har definert den i scripts i pac
 5. Sjekk om nettsiden din kjører på: `http://{{YOUR_GITHUB_USERNAME}}.github.io/{{YOUR_GITHUB_USER}}`
 
 Hurra! nettsiden din er live :D
+
+
+## STEG 4 utvikle en super cool react-app med continuous deployment!
+
+1. Gjør endringer i koden
+2. Push oppdateringene dine til git
+
+```
+git add .
+git commit -m 'Your commit message'
+git push origin main
+```
+
+Endringene du gjør vil automatisk oppdateres på nettsiden din! Happy coding :D
