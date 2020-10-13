@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-bedpress/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/react-bedpress/static/js/main.912d5aff.chunk.js",
-    "main.js.map": "/react-bedpress/static/js/main.912d5aff.chunk.js.map",
+    "main.js": "/react-bedpress/static/js/main.b479631c.chunk.js",
+    "main.js.map": "/react-bedpress/static/js/main.b479631c.chunk.js.map",
     "runtime-main.js": "/react-bedpress/static/js/runtime-main.b43cbe31.js",
     "runtime-main.js.map": "/react-bedpress/static/js/runtime-main.b43cbe31.js.map",
     "static/css/2.0a5b19c0.chunk.css": "/react-bedpress/static/css/2.0a5b19c0.chunk.css",
     "static/js/2.16ab8709.chunk.js": "/react-bedpress/static/js/2.16ab8709.chunk.js",
     "static/js/2.16ab8709.chunk.js.map": "/react-bedpress/static/js/2.16ab8709.chunk.js.map",
     "index.html": "/react-bedpress/index.html",
-    "precache-manifest.9b814890d17dae93573dc8591374bf59.js": "/react-bedpress/precache-manifest.9b814890d17dae93573dc8591374bf59.js",
+    "precache-manifest.bfa6cd1def7234fe97df54fee17f93e0.js": "/react-bedpress/precache-manifest.bfa6cd1def7234fe97df54fee17f93e0.js",
     "service-worker.js": "/react-bedpress/service-worker.js",
     "static/css/2.0a5b19c0.chunk.css.map": "/react-bedpress/static/css/2.0a5b19c0.chunk.css.map",
     "static/css/main.5ecd60fb.chunk.css.map": "/react-bedpress/static/css/main.5ecd60fb.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.0a5b19c0.chunk.css",
     "static/js/2.16ab8709.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.912d5aff.chunk.js"
+    "static/js/main.b479631c.chunk.js"
   ]
 }

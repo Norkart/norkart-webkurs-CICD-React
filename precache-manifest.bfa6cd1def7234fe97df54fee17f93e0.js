@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1e4bfb9a62bf4d5903ce96a82b65d416",
+    "revision": "45f8ec5b6404ede4a7a10fc2cf77c2ea",
     "url": "/react-bedpress/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-bedpress/static/css/2.0a5b19c0.chunk.css"
   },
   {
-    "revision": "9f2ec933a7bd258c3861",
+    "revision": "60ab871179a9b478232b",
     "url": "/react-bedpress/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-bedpress/static/js/2.16ab8709.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9f2ec933a7bd258c3861",
-    "url": "/react-bedpress/static/js/main.912d5aff.chunk.js"
+    "revision": "60ab871179a9b478232b",
+    "url": "/react-bedpress/static/js/main.b479631c.chunk.js"
   },
   {
     "revision": "df7a3ccb8ebad636ef9a",
