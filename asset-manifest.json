@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/webkurs2020-CICD-React/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/webkurs2020-CICD-React/static/js/main.5147c981.chunk.js",
-    "main.js.map": "/webkurs2020-CICD-React/static/js/main.5147c981.chunk.js.map",
-    "runtime-main.js": "/webkurs2020-CICD-React/static/js/runtime-main.89e14c0b.js",
-    "runtime-main.js.map": "/webkurs2020-CICD-React/static/js/runtime-main.89e14c0b.js.map",
-    "static/css/2.0a5b19c0.chunk.css": "/webkurs2020-CICD-React/static/css/2.0a5b19c0.chunk.css",
-    "static/js/2.16ab8709.chunk.js": "/webkurs2020-CICD-React/static/js/2.16ab8709.chunk.js",
-    "static/js/2.16ab8709.chunk.js.map": "/webkurs2020-CICD-React/static/js/2.16ab8709.chunk.js.map",
-    "index.html": "/webkurs2020-CICD-React/index.html",
-    "precache-manifest.2cb66739bc8a75f73b7e38fb442e8dff.js": "/webkurs2020-CICD-React/precache-manifest.2cb66739bc8a75f73b7e38fb442e8dff.js",
-    "service-worker.js": "/webkurs2020-CICD-React/service-worker.js",
-    "static/css/2.0a5b19c0.chunk.css.map": "/webkurs2020-CICD-React/static/css/2.0a5b19c0.chunk.css.map",
-    "static/css/main.5ecd60fb.chunk.css.map": "/webkurs2020-CICD-React/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.16ab8709.chunk.js.LICENSE.txt": "/webkurs2020-CICD-React/static/js/2.16ab8709.chunk.js.LICENSE.txt"
+    "main.css": "/react-bedpress/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/react-bedpress/static/js/main.912d5aff.chunk.js",
+    "main.js.map": "/react-bedpress/static/js/main.912d5aff.chunk.js.map",
+    "runtime-main.js": "/react-bedpress/static/js/runtime-main.b43cbe31.js",
+    "runtime-main.js.map": "/react-bedpress/static/js/runtime-main.b43cbe31.js.map",
+    "static/css/2.0a5b19c0.chunk.css": "/react-bedpress/static/css/2.0a5b19c0.chunk.css",
+    "static/js/2.16ab8709.chunk.js": "/react-bedpress/static/js/2.16ab8709.chunk.js",
+    "static/js/2.16ab8709.chunk.js.map": "/react-bedpress/static/js/2.16ab8709.chunk.js.map",
+    "index.html": "/react-bedpress/index.html",
+    "precache-manifest.9b814890d17dae93573dc8591374bf59.js": "/react-bedpress/precache-manifest.9b814890d17dae93573dc8591374bf59.js",
+    "service-worker.js": "/react-bedpress/service-worker.js",
+    "static/css/2.0a5b19c0.chunk.css.map": "/react-bedpress/static/css/2.0a5b19c0.chunk.css.map",
+    "static/css/main.5ecd60fb.chunk.css.map": "/react-bedpress/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.16ab8709.chunk.js.LICENSE.txt": "/react-bedpress/static/js/2.16ab8709.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.89e14c0b.js",
+    "static/js/runtime-main.b43cbe31.js",
     "static/css/2.0a5b19c0.chunk.css",
     "static/js/2.16ab8709.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.5147c981.chunk.js"
+    "static/js/main.912d5aff.chunk.js"
   ]
 }
