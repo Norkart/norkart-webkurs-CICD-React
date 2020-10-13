@@ -58,7 +58,7 @@ HURRA! Du kan nå kalle deg for en React-utvikler!
 
 Du har nå en enkel mal som du kan bygge videre på. For å begynne å jobbe videre med prosjektet og for at du skal kunne deploye til din egen github-pages, trenger du å flytte koden over på ditt eget github repository. 
 
-1. Lag deg et nytt repository på https://github.com/. Gjerne gi repositoriet samme navn som kildekoden. Velg public (nødvendig for å kunne bruke github-pages). Ikke initialiser med README, .gitignore eller licence.
+1. Lag deg et nytt repository på https://github.com/. Gjerne gi repositoriet samme navn som kildekoden. Velg public (hvis du har github pro (gratis for studenter) kan du velge å gjøre repoet private. Hvis ikke må det være public for at github-pages skal virke). Ikke initialiser med README, .gitignore eller licence.
 ![new repo](public/Images/github_new_repo.png)
 
 2. I terminalen. Sørg for at du er inni prosjektet som du klonet og kjørte i forrige steg. `ctrl c`for å stoppe appen hvis den fortsatt kjører. 
@@ -118,3 +118,7 @@ npm run deploy
 ```
 
 Endringene du gjør vil automatisk oppdateres på nettsiden din! Happy coding :D
+
+---
+### NB
+- Mapbox tokenen til dette prosjektet vil utløpe etter et par uker. Du kan enkelt lage din egen token på https://account.mapbox.com/access-tokens. Det er gratis helt frem til du får veldig stor traffikk mot appen din. Bytt ut tokenen din i,'.env' filen for å ta i bruk din egen token. Det annbefales ikke å legge tokenet i kode på et public github repo (bruk private eller la være å pushe .env fila til git). I Mapbox Studio kan do også lage custom kart (f.eks dark mode med rosa vann) som du kan vise på nettsiden.
