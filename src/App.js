@@ -1,10 +1,16 @@
 import React from "react";
-import "./App.css";
+import Header from "./components/Header";
+import MapboxGLMap from "./components/MapboxGLMap";
+
+const styles = {
+  overflow:'hidden'
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">KART!!</header>
+    <div style={styles}>
+      <Header/>
+      <MapboxGLMap />
     </div>
   );
 }
