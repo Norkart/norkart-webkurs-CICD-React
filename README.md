@@ -1,4 +1,4 @@
-# Velkommen til React/CICD Kurs med Norkart!
+# Velkommen til CICD/React Kurs med Norkart!
 Målet med dette kurset er å gi dere en enkel mal som dere kan bruke for å komme raskt i gang med utvikling av React-kartapplikasjoner. Applikasjonen skal 'deployes' kontinuerlig på github-pages slik at dere lett kan vise andre det kule dere lager.
 
 Når dere er ferdige her skal dere ha deres egen lenke til en live react nettside slik som dette: https://norkart.github.io/webkurs2020-CICD-React/.
