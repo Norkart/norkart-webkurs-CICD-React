@@ -36,7 +36,7 @@ https://www.stanleyulili.com/node/how-to-install-node-and-npm-on-mac-or-linux/. 
 1. I terminalen. Finn fram til fillokasjonen hvor dere vil lagre prosjektet og klon dette repoet:
 
 ```
-   git clone https://github.com/thaiKari/react-bedpress.git
+   git clone https://github.com/Norkart/webkurs2020-CICD-React.git
 ```
 
 2. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `mapbox-gl` biblioteket til å vise kart på netsiden. Dette vil i tillegg installere `gh-pages`som brukes til å deploye nettsiden.
