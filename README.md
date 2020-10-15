@@ -92,7 +92,7 @@ Koden din skal nå være 'pushet' til ditt nye repo.
 ```
    npm run deploy
 ```
-Du kan kjøre denne kommandoen siden kildekoden har definert den i scripts i package.json. I tillegg, har du allerede installert pakken `gh-pages` når du kjørte kommandoen `npm install`. `npm run deploy` kommandoen vil lage en branch i repoet ditt som heter gh-pages
+Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kjøre denne kommandoen siden kildekoden har definert den i scripts i package.json. I tillegg, har du allerede installert pakken `gh-pages` når du kjørte kommandoen `npm install`. 
 
 ![package json](public/Images/packagejsonscript.png)
 
