@@ -85,7 +85,7 @@ Koden din skal nå være 'pushet' til ditt nye repo.
 ## STEG 3 Få nettsiden til å kjøre på github-pages.
 
 1. Åpne prosjektet i vs code. (skriv `code .` i terminalen ) 
-2. Endre homepage i `package.json` til din egen url: `"homepage": "http://{{YOUR_GITHUB_USERNAME}}.github.io/{{YOUR_GITHUB_USER}}",`
+2. Endre homepage i `package.json` til din egen url: `"homepage": "http://{{YOUR_GITHUB_USERNAME}}.github.io/{{YOUR_GITHUB_PROJECT}}",`
 ![package json](public/Images/packagejsonhome.png)
 
 3. Deploy appen til github pages:
