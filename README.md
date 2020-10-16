@@ -112,7 +112,7 @@ Hurra! nettsiden din er live :D
 
 ## STEG 4 utvikle en super cool react-app med continuous deployment!
 
-1. Gjør endringer i koden (start gjerne med å oppdatere koordinatene til et ønsket sted). 
+1. Gjør endringer i koden (start for eksempel med å oppdatere kartets zoom nivå, start koordinater eller bakgrunnskart). 
 2. Push oppdateringene dine til git og deploy endringene
 
 ```
@@ -124,6 +124,13 @@ npm run deploy
 
 Endringene du gjør vil automatisk oppdateres på nettsiden din! Happy coding :D
 
+## OPTIONAL STEG 1A Bytt bakgrunnskart
+I dette steget skal du lage en enkel meny for å bytte bakgrunnskartet. Mapbox dokumentasjonen forklarer hvordan det kan gjøres med html og javascript: https://docs.mapbox.com/mapbox-gl-js/example/setstyle/. Med noen få tweeks, kan du få til det samme i din React applikasjon.
+![activate github pages](public/Images/SwapBackground.png)
+
+Til å begynne med, skal vi lage menyen i MapboxGLMap komponenten. Når den virker slik som vi ønsker skal den flyttes til en egen komponent for ryddighetsskyld. 'Fasiten' på denne oppgaven kan sees i **changeBackgroundLayer** branchen.
+
+1.  TODO ... WRITE HOW TO DO THIS ...
 
 ---
 ### NB
