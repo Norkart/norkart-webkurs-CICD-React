@@ -5,11 +5,27 @@ import "mapbox-gl/dist/mapbox-gl.css";
 const styles = {
   width: "100%",
   height: "calc(100vh - 80px)",
-  position: "absolute"
+  position: "absolute",
 };
+
+const menuStyle = {
+  position: "absolute",
+  background: "white",
+  padding: 10,
+  zIndex: "1",
+  display: "flex",
+};
+
+const backgroundLayers = [
+  { id: "streets-v11", name: "Streets" },
+  { id: "light-v10", name: "Light" },
+  { id: "dark-v10", name: "Dark" },
+  { id: "satellite-v9", name: "Satellite" },
+];
 
 const MapboxGLMap = () => {
   const [map, setMap] = useState(null);
+  const [backgroundLayerID, setbackgroundLayerID] = useState("streets-v11");
   const mapContainer = useRef(null);
 
   useEffect(() => {
@@ -17,9 +33,9 @@ const MapboxGLMap = () => {
     const initializeMap = ({ setMap, mapContainer }) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
-        style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
-        center: [10.408773,63.422091],
-        zoom: 10
+        style: `mapbox://styles/mapbox/${backgroundLayerID}`,
+        center: [10.408773, 63.422091],
+        zoom: 10,
       });
 
       map.on("load", () => {
@@ -29,9 +45,29 @@ const MapboxGLMap = () => {
     };
 
     if (!map) initializeMap({ setMap, mapContainer });
-  }, [map]);
+    if (map) map.setStyle("mapbox://styles/mapbox/" + backgroundLayerID);
+  }, [backgroundLayerID, map]);
 
-  return <div ref={el => (mapContainer.current = el)} style={styles} />;
+  return (
+    <div>
+      <div style={menuStyle}>
+        {backgroundLayers.map((backgroundLayer) => (
+          <div key={backgroundLayer.id}>
+            <input
+              id={backgroundLayer.id}
+              type="radio"
+              name="rtoggle"
+              value={backgroundLayer.id}
+              onClick={() => setbackgroundLayerID(backgroundLayer.id)}
+              defaultChecked={backgroundLayer.id === backgroundLayerID}
+            />
+            <label>{backgroundLayer.name}</label>
+          </div>
+        ))}
+      </div>
+      <div ref={(el) => (mapContainer.current = el)} style={styles} />
+    </div>
+  );
 };
 
 export default MapboxGLMap;
