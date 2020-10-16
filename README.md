@@ -105,7 +105,7 @@ Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kj�
 
 ![activate github pages](public/Images/activate-gh-pages.png)
 
-5. Sjekk om nettsiden din kjører på: `http://{{YOUR_GITHUB_USERNAME}}.github.io/{{YOUR_GITHUB_USER}}`
+5. Sjekk om nettsiden din kjører på: `http://github.com/{{YOUR_GITHUB_USERNAME}}/{{YOUR_REPO_NAME}}`
 
 Hurra! nettsiden din er live :D
 
