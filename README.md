@@ -113,7 +113,7 @@ Hurra! nettsiden din er live :D
 ## STEG 4 utvikle en super cool react-app med continuous deployment!
 
 1. Gjør endringer i koden (start gjerne med å oppdatere koordinatene til et ønsket sted). 
-2. Push oppdateringene dine til git
+2. Push oppdateringene dine til git og deploy endringene
 
 ```
 git add .
