@@ -68,6 +68,11 @@ Du har nå en enkel mal som du kan bygge videre på. For å begynne å jobbe vid
 ```
    git remote set-url origin http://github.com/{{YOUR_GITHUB_USERNAME}}/{{YOUR_REPO_NAME}}
 ```
+sjekk at du har byttet origin ved å skrive
+```
+   git remote -v
+```
+Da skal du se pathen til repoet ditt.
 
 4. Dytt koden opp til ditt repository:
 ```
