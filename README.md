@@ -201,7 +201,7 @@ Ved å følge pilene på bildet ovenfor, genererer vi en enkel løype som bygger
         repository: ${{ github.repository }}
 </pre>
 
-Navn- og epost-informasjon for Github trenger ikke være deres eget, så derfor fyller vi bare inn med 'github-actions[bot]' her. 'ACTIONS-DEPLOY-ACCESS-TOKEN' er secreten vi lagde i forrige steg. Dersom dere valgte eget navn må dere huske å bytte navnet her.
+Navn- og epost-informasjon for Github trenger ikke være deres eget, så derfor fyller vi bare inn med 'github-actions[bot]' her. 'ACTIONS_DEPLOY_ACCESS_TOKEN' er secreten vi lagde i forrige steg. Dersom dere valgte eget navn må dere huske å bytte navnet her.
 
 I tillegg til å legge til dette steget, må vi gjøre noen endringer:
 
