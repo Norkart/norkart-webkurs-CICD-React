@@ -173,7 +173,7 @@ Gi tokenet et navn, f.eks 'deploy-access', og huk av på 'repo'. Klikk så på '
    <br>
    <br>
 
-For å la Github Actions hente tokenet vi nettop lagde, trenger vi en sectet. Trykk på 'New Secret' og gi den et navn, for eksempel 'ACTIONS-DEPLOY-ACCESS-TOKEN', og kopier inn verdien fra forrige steg.
+For å la Github Actions hente tokenet vi nettop lagde, trenger vi en sectet. Trykk på 'New Secret' og gi den et navn, for eksempel 'ACTIONS_DEPLOY_ACCESS_TOKEN', og kopier inn verdien fra forrige steg.
 
 3. Sett opp github actions:
    <br >
@@ -197,7 +197,7 @@ Ved å følge pilene på bildet ovenfor, genererer vi en enkel løype som bygger
         repository: ${{ github.repository }}
 </pre>
 
-'**ACTIONS-DEPLOY-ACCESS-TOKEN**' er secreten vi lagde i forrige steg. Dersom dere valgte eget navn må dere huske å bytte navnet her.
+'**ACTIONS_DEPLOY_ACCESS_TOKEN**' er secreten vi lagde i forrige steg. Dersom dere valgte eget navn må dere huske å bytte navnet her.
 
 I tillegg til å legge til dette steget, må vi gjøre noen endringer:
 
