@@ -136,8 +136,12 @@ npm run deploy
 ```
 
 Endringene du gjør vil automatisk oppdateres på nettsiden din! Happy coding :D
+Videre gir vi deg 2 mulige utfordringer:
 
-## [OPTIONAL]
+1. OPTION 1: Set opp automatisk deploy av appen trigget når main branchen oppdaterses.
+2. OPTION 2: Lag en meny komponent for å bytte bakgrunnskart.
+
+## OPTION 1
 
 For å oppdattere nettsiden må vi manuelt kjøre **npm run deploy** etter å ha endret koden. Hadde det ikke vært greit å automatisert dette slik at nettsiden oppdatteres hver gang main-branchen oppdateres? Dette kan vi gjøre ved hjelp av Github Actions:
 
@@ -240,16 +244,19 @@ jobs:
 
 Klikk på commit, og gjerne gjør noen enkle endringer i koden for å se at nettsiden endrer seg når ny kode dyttes til main-branchen! :D
 
-## OPTIONAL STEG 1A Bytt bakgrunnskart
 
-I dette steget skal du lage en enkel meny for å bytte bakgrunnskartet. Mapbox dokumentasjonen forklarer hvordan det kan gjøres med html og javascript: https://docs.mapbox.com/mapbox-gl-js/example/setstyle/. Med noen få tweeks, kan du få til det samme i din React applikasjon.
+## OPTIONAL 2 Bytt bakgrunnskart
+I dette steget skal du lage en enkel meny for å bytte bakgrunnskartet. Mapbox dokumentasjonen forklarer hvordan det kan gjøres med html og javascript: https://docs.mapbox.com/mapbox-gl-js/example/setstyle/. Med noen få tweeks, kan du få til det samme i din React applikasjon. her får du noen tips til hvordan å løse oppgaven. Spør gjerne om hjelp hvis du sitter fast.
 ![activate github pages](public/Images/SwapBackground.png)
 
-Til å begynne med, skal vi lage menyen i MapboxGLMap komponenten. Når den virker slik som vi ønsker skal den flyttes til en egen komponent for ryddighetsskyld. 'Fasiten' på denne oppgaven kan sees i **changeBackgroundLayer** branchen.
+Det kan være enklest å begynne med å lage menyen i MapboxGLMap komponenten. Når den virker slik som du ønsker kan den flyttes til en egen komponent for ryddighetsskyld. Et løsningforslag på denne oppgaven kan sees i **changeBackgroundLayer** branchen. 
 
-1.  TODO ... WRITE HOW TO DO THIS ...
+De forskjellige bakgrunnene som finnes har følgende ider: "streets-v11", "light-v10", "dark-v10" og "satellite-v9". Bakgrunnskartet settes ved å sette style til `mapbox://styles/mapbox/${backgroundLayerID}`. Det kan være lurt å lagre den foreløpig valgte mapstylen som en state i komponenten (https://reactjs.org/docs/hooks-state.html).
 
----
+Bakgrunnskartet endres ved et kall til `map.setStyle('mapbox://styles/mapbox/${backgroundLayerID})`. For å få til dette, kan du bruke en `useEffect` hook (https://reactjs.org/docs/hooks-effect.html).
+
+Menyen for valg av bakgrunnskart kan med fordel være en egen komponent. Prøv å skil ut koden for menyen til en egen komponent ved å sende relevant data eller funksjoner som props fra MapboxGLMap komponenten. Løsningsforslag for dette finner du i branchen **changeBackgroundLayerUsingProps**  på github.
+
 
 ### NB
 
