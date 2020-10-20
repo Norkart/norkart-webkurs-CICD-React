@@ -41,7 +41,7 @@ Før dere starter må dere ha noe programvare installert:
    git clone https://github.com/Norkart/webkurs2020-CICD-React.git
 ```
 
-2. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `mapbox-gl` biblioteket til å vise kart på netsiden. Dette vil i tillegg installere `gh-pages`som brukes til å deploye nettsiden.
+2. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `mapbox-gl` biblioteket til å vise kart på nettsiden. Dette vil i tillegg installere `gh-pages` som brukes til å deploye nettsiden.
 
 ```
    npm install
@@ -59,14 +59,14 @@ HURRA! Du kan nå kalle deg for en React-utvikler!
 
 ---
 
-## STEG 2 Push koden til ditt eget github repo
+## STEG 2: Push koden til ditt eget github repo
 
 Du har nå en enkel mal som du kan bygge videre på. For å begynne å jobbe videre med prosjektet og for at du skal kunne deploye til din egen github-pages, trenger du å flytte koden over på ditt eget github repository.
 
 1. Lag deg et nytt repository på https://github.com/. Gjerne kall repositoriet **webkurs2020-CICD-React**. Velg public (hvis du har github pro (gratis for studenter) kan du velge å gjøre repoet private. Hvis ikke må det være public for at github-pages skal virke). Ikke initialiser med README, .gitignore eller licence.
    ![new repo](public/Images/github_new_repo.png)
 
-2. I terminalen. Sørg for at du er inni prosjektet som du klonet og kjørte i forrige steg. `ctrl c`for å stoppe appen hvis den fortsatt kjører.
+2. I terminalen. Sørg for at du er inni prosjektet som du klonet og kjørte i forrige steg. `ctrl c` for å stoppe appen hvis den fortsatt kjører.
 
 3. Endre git 'origin' til dit nye repository:
 
@@ -74,7 +74,7 @@ Du har nå en enkel mal som du kan bygge videre på. For å begynne å jobbe vid
    git remote set-url origin http://github.com/{{YOUR_GITHUB_USERNAME}}/{{YOUR_REPO_NAME}}
 ```
 
-sjekk at du har byttet origin ved å skrive
+Sjekk at du har byttet origin ved å skrive
 
 ```
    git remote -v
@@ -99,7 +99,7 @@ Koden din skal nå være 'pushet' til ditt nye repo.
 
 ---
 
-## STEG 3 Få nettsiden til å kjøre på github-pages.
+## STEG 3: Få nettsiden til å kjøre på github-pages.
 
 1. Åpne prosjektet i vs code. (skriv `code .` i terminalen )
 2. Endre homepage i `package.json` til din egen url: `"homepage": "http://{{YOUR_GITHUB_USERNAME}}.github.io/{{YOUR_GITHUB_PROJECT}}",`
@@ -123,7 +123,7 @@ Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kj�
 
 Hurra! nettsiden din er live :D
 
-## STEG 4 utvikle en super cool react-app med continuous deployment!
+## STEG 4: Utvikle en super cool react-app med continuous deployment!
 
 1. Gjør endringer i koden (start for eksempel med å oppdatere kartets zoom nivå, start koordinater eller bakgrunnskart).
 2. Push oppdateringene dine til git og deploy endringene
@@ -141,7 +141,7 @@ Videre gir vi deg 2 mulige utfordringer:
 1. OPTION 1: Set opp automatisk deploy av appen trigget når main branchen oppdaterses.
 2. OPTION 2: Lag en meny komponent for å bytte bakgrunnskart.
 
-## OPTION 1
+## OPTION 1: Automatisk deploy av app
 
 For å oppdattere nettsiden må vi manuelt kjøre **npm run deploy** etter å ha endret koden. Hadde det ikke vært greit å automatisert dette slik at nettsiden oppdatteres hver gang main-branchen oppdateres? Dette kan vi gjøre ved hjelp av Github Actions:
 
@@ -249,8 +249,8 @@ jobs:
 Klikk på commit, og gjerne gjør noen enkle endringer i koden for å se at nettsiden endrer seg når ny kode dyttes til main-branchen! :D
 
 
-## OPTIONAL 2 Bytt bakgrunnskart
-I dette steget skal du lage en enkel meny for å bytte bakgrunnskartet. Mapbox dokumentasjonen forklarer hvordan det kan gjøres med html og javascript: https://docs.mapbox.com/mapbox-gl-js/example/setstyle/. Med noen få tweeks, kan du få til det samme i din React applikasjon. her får du noen tips til hvordan å løse oppgaven. Spør gjerne om hjelp hvis du sitter fast.
+## OPTION 2: Bytt bakgrunnskart
+I dette steget skal du lage en enkel meny for å bytte bakgrunnskartet. Mapbox dokumentasjonen forklarer hvordan det kan gjøres med html og javascript: https://docs.mapbox.com/mapbox-gl-js/example/setstyle/. Med noen få tweeks, kan du få til det samme i din React applikasjon. Her får du noen tips til hvordan å løse oppgaven. Spør gjerne om hjelp hvis du sitter fast.
 ![activate github pages](public/Images/SwapBackground.png)
 
 Det kan være enklest å begynne med å lage menyen i MapboxGLMap komponenten. Når den virker slik som du ønsker kan den flyttes til en egen komponent for ryddighetsskyld. Et løsningforslag på denne oppgaven kan sees i **changeBackgroundLayer** branchen. 
