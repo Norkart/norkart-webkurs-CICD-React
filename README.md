@@ -195,13 +195,13 @@ Ved å følge pilene på bildet ovenfor, genererer vi en enkel løype som bygger
         git remote set-url origin https://${github_token}@github.com/${repository}
         npm run deploy
       env:
-        user_name: 'github-actions[bot]'
-        user_email: 'github-actions[bot]@users.noreply.github.com'
+        user_name: 'Ettellerannet'
+        user_email: 'Ettellerannet@epost.no'
         github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
         repository: ${{ github.repository }}
 </pre>
 
-Navn- og epost-informasjon for Github trenger ikke være deres eget, så derfor fyller vi bare inn med 'github-actions[bot]' her. 'ACTIONS_DEPLOY_ACCESS_TOKEN' er secreten vi lagde i forrige steg. Dersom dere valgte eget navn må dere huske å bytte navnet her.
+Navn- og epost-informasjon for Github trenger ikke være deres eget, så derfor fyller vi bare inn etellerannet her. 'ACTIONS_DEPLOY_ACCESS_TOKEN' er secreten vi lagde i forrige steg. Dersom dere valgte eget navn må dere huske å bytte navnet her.
 
 I tillegg til å legge til dette steget, må vi gjøre noen endringer:
 
