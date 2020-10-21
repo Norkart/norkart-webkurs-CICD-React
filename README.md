@@ -207,7 +207,7 @@ I tillegg til å legge til dette steget, må vi gjøre noen endringer:
 
 1. Fjern **10.x** og **12.x** fra node-version listen (vi vil bare bygge og deploye én gang)
 
-2. Fjern **npm run test** steget, da dette steget ikke vil passere ettersom vi ikke har noen tester.
+2. Fjern **run: npm test** steget, da dette steget ikke vil passere ettersom vi ikke har noen tester.
 
 Filen blir altså seende slik ut:
 
