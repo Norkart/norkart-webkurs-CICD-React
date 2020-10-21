@@ -136,7 +136,7 @@ npm run deploy
 ```
 
 Endringene du gjør vil automatisk oppdateres på nettsiden din! Happy coding :D
-Videre gir vi deg 2 mulige utfordringer:
+Videre gir vi deg 2 mulige utfordringer men du står fritt til å gjøre noe helt annet hvis du har en kul ide til appen. Mulige utfordringer:
 
 1. OPTION 1: Set opp automatisk deploy av appen trigget når main branchen oppdaterses.
 2. OPTION 2: Lag en meny komponent for å bytte bakgrunnskart.
