@@ -136,10 +136,18 @@ npm run deploy
 ```
 
 Endringene du gjør vil automatisk oppdateres på nettsiden din! Happy coding :D
-Videre gir vi deg 2 mulige utfordringer men du står fritt til å gjøre noe helt annet hvis du har en kul ide til appen. Mulige utfordringer:
+Videre gir vi deg 2 mulige utfordringer med fasit og nærmere instruksjoner. Men du står fritt til å gjøre noe helt annet hvis du har en kul ide til appen. Mulige utfordringer:
 
 1. OPTION 1: Set opp automatisk deploy av appen trigget når main branchen oppdaterses.
 2. OPTION 2: Lag en meny komponent for å bytte bakgrunnskart.
+
+Tips til andre ting du kan gjøre med kartet:
+- Sjekk ut mapbox gl sine eksempler: https://docs.mapbox.com/mapbox-gl-js/example/
+- Visualisere historiske Oslo bysykkel data: https://oslobysykkel.no/en/open-data/historical
+- Lag et Koropletkart av Norgesbefolkning. En Json fil er lagt ved (se sample_data folderen) som viser norges befolkning delt opp i 5x5km ruter.
+- Visualiser din egen data. Du kan lage geojson filer her: http://geojson.io/#map=2/20.0/0.0
+
+
 
 ## OPTION 1: Automatisk deploy av app
 
