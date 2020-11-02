@@ -247,6 +247,8 @@ jobs:
     - run: npm run build --if-present
     - name: Deploy
       run: |
+        git config --global user.name $user_name
+        git config --global user.email $user_email
         git remote set-url origin https://${github_token}@github.com/${repository}
         npm run deploy
       env:
@@ -254,6 +256,8 @@ jobs:
         user_email: 'Ettellerannet@epost.no'
         github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
         repository: ${{ github.repository }}
+        
+        
 </pre>
 
 Klikk på commit, og gjerne gjør noen enkle endringer i koden for å se at nettsiden endrer seg når ny kode dyttes til main-branchen! :D
