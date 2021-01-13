@@ -1,8 +1,19 @@
-# Velkommen til CICD Kurs med Norkart!
+# Velkommen til Kunkuranse med Norkart!
 
-Målet med dette kurset er å vise hvordan du kan raskt få en kart-webapplikasjon til å kjøre live. Ved å få appen raskt ut i produksjon og ved å videreutvikle den med 'Continuous Integration' og 'Continuous Delivery' (CICD) prinsippet, kan nye features og bug-fixes effektivt og kontinuerlig integreres i appen din. Her får du en enkel mal på en React applikasjon med et mapbox kart. Denne skal du deploye til github pages slik at dere lett kan vise andre det kule dere lager.
+Dette er en Konkuranse i regi av IT-Dagene 2021. Kunkuransen er enkel. Målet er å lage den kuleste/fineste/morsomste/nyttigeste kart-appen og deploye den på github-pages.
+Vi gir dere en enkel boilerplate på en react-applikasjon med mapbox kart og forklarer hvordan denne kan deployes. Resten er opp til dere.
 
-Når dere er ferdige her skal dere ha deres egen lenke til en live react kart-nettside slik som dette: https://norkart.github.io/webkurs2020-CICD-React/.
+## Hvordan Delta
+Send epost med lenke til appen du har laget og en kort beskrivelse av hva du har laget. Alle som deltar vil bli kontaktet på mail etter fristen har gått ut og vinneren (Juryen's choice) annonseres her. Det blir så klart premie! 
+
+- **Frist for å sende innslag:** Tirsdag 19. Januar 2021 23:59
+- **Sendes til:** kari.meling.johannessen@norkart.no
+- Hvis du foretrekker å kode med et annet front-end bibliotek (eg. Vue, Angular, vannila JS/HTML/css) eller et annet kart-bibliotek (e.g Leaflet, deck.gl) så er det helt greit men appen bør involvere kart.
+- Dere kan gjerne jobbe i grupper. Bare skriv kontaktinformasjon til alle gruppemedlemmene i mailen.
+
+Lykke til!
+
+Resten av denne READMEen forklarer hvordan du kan raskt få en boilerplate kart-webapplikasjon live. Ved å få appen raskt ut i produksjon og ved å videreutvikle den med 'Continuous Integration' og 'Continuous Delivery' (CICD) prinsippet, kan nye features og bug-fixes effektivt og kontinuerlig integreres i appen din og du kan enkelt vise frem til andre hva du har laget.
 
 ---
 
