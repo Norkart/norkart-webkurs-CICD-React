@@ -1,10 +1,10 @@
 # Velkommen til Kunkuranse med Norkart!
 
-Dette er en Konkuranse i regi av IT-Dagene 2021. Kunkuransen er enkel. Målet er å lage den kuleste/fineste/morsomste/nyttigeste kart-appen og deploye den på github-pages.
+Dette er en Konkurranse i regi av IT-Dagene 2021. Konkurransen er enkel. Målet er å lage den kuleste/fineste/morsomste/nyttigste kart-appen og deploye den på github-pages.
 Vi gir dere en enkel boilerplate på en react-applikasjon med mapbox kart og forklarer hvordan denne kan deployes. Resten er opp til dere.
 
 ## Hvordan Delta
-Send epost med lenke til appen du har laget og en kort beskrivelse av hva du har laget. Alle som deltar vil bli kontaktet på mail etter fristen har gått ut og vinneren (Juryen's choice) annonseres her. Det blir så klart premie! 
+Send epost med lenke til appen du har laget og en kort beskrivelse av hva du har laget. Alle som deltar, vil bli kontaktet på mail etter fristen har gått ut og vinneren (Juryen's choice) annonseres her. Det blir så klart premie! 
 
 - **Frist for å sende innslag:** Tirsdag 19. Januar 2021 23:59
 - **Sendes til:** kari.meling.johannessen@norkart.no
