@@ -4,7 +4,7 @@ Dette er en konkurranse i regi av IT-Dagene 2021. Konkurransen er enkel. Målet 
 Vi gir dere en enkel boilerplate på en react-applikasjon med mapbox kart og forklarer hvordan denne kan deployes. Resten er opp til dere.
 
 ## Hvordan Delta
-Send epost med lenke til appen du har laget og en kort beskrivelse av hva du har laget. Alle som deltar, vil bli kontaktet på mail etter fristen har gått ut og vinneren (Juryen's choice) annonseres her. Det blir så klart premie! 
+Send epost med lenke til appen du har laget og en kort beskrivelse av hva du har laget. Alle som deltar, vil bli kontaktet på mail etter fristen har gått ut og vinneren (Juryen's choice) annonseres på mail. Det blir så klart premie! 
 
 - **Frist for å sende innslag:** Tirsdag 19. Januar 2021 23:59
 - **Sendes til:** kari.meling.johannessen@norkart.no
