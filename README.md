@@ -15,6 +15,8 @@ Lykke til!
 
 Resten av denne READMEen forklarer hvordan du kan raskt få en boilerplate kart-webapplikasjon live. Ved å få appen raskt ut i produksjon og ved å videreutvikle den med 'Continuous Integration' og 'Continuous Delivery' (CICD) prinsippet, kan nye features og bug-fixes effektivt og kontinuerlig integreres i appen din og du kan enkelt vise frem til andre hva du har laget.
 
+Denne konkurransen er basert på et kurs vi tidligere har holdt med linjeforeningene Abakus og Hybrida. Dersom du deltok på kurset, kan du gjerne bygge videre på det du tidligere har gjort.
+
 ---
 
 ## STEG 0: Forutsetninger
