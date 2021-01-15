@@ -10,12 +10,11 @@ Send epost med lenke til appen du har laget og en kort beskrivelse av hva du har
 - **Sendes til:** kari.meling.johannessen@norkart.no
 - Hvis du foretrekker å kode med et annet front-end bibliotek (eg. Vue, Angular, vannila JS/HTML/css) eller et annet kart-bibliotek (e.g Leaflet, deck.gl) så er det helt greit men appen bør involvere kart.
 - Dere kan gjerne jobbe i grupper. Bare skriv kontaktinformasjon til alle gruppemedlemmene i mailen.
+- Denne konkurransen er basert på et kurs vi tidligere har holdt med linjeforeningene Abakus og Hybrida. Dersom du deltok på kurset, kan du gjerne bygge videre på det du gjorde da.
 
 Lykke til!
 
 Resten av denne READMEen forklarer hvordan du kan raskt få en boilerplate kart-webapplikasjon live. Ved å få appen raskt ut i produksjon og ved å videreutvikle den med 'Continuous Integration' og 'Continuous Delivery' (CICD) prinsippet, kan nye features og bug-fixes effektivt og kontinuerlig integreres i appen din og du kan enkelt vise frem til andre hva du har laget.
-
-Denne konkurransen er basert på et kurs vi tidligere har holdt med linjeforeningene Abakus og Hybrida. Dersom du deltok på kurset, kan du gjerne bygge videre på det du tidligere har gjort.
 
 ---
 
