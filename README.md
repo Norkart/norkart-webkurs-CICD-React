@@ -59,6 +59,7 @@ Behold default innstillinger:
    git clone https://github.com/{dit_github_brukernavn}/webkurs2020-CICD-React.git
 ```
 Riktig URL kan hentes herfra:
+
 <img width="417" alt="image" src="https://user-images.githubusercontent.com/6861456/194050477-71fd83df-382e-4396-b444-0aa415150fb2.png">
 
 
