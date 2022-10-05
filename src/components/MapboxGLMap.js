@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { FritekstSok } from "./FritekstSok";
 
 const styles = {
   width: "100%",
@@ -34,7 +35,12 @@ const MapboxGLMap = () => {
     }
   }, [map]);
 
-  return <div ref={(el) => (mapContainer.current = el)} style={styles} />;
+  return (
+    <>
+      <FritekstSok></FritekstSok>
+      <div ref={(el) => (mapContainer.current = el)} style={styles} />;
+    </>
+  );
 };
 
 export default MapboxGLMap;
