@@ -2,7 +2,7 @@
   "name": "react-bedpress",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://norkart.github.io/norkart-webkurs-CICD-React-1/",
+  "homepage": "https://norkart.github.io/norkart-webkurs-CICD-React/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
