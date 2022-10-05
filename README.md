@@ -105,7 +105,9 @@ Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kj�
 
 Hurra! nettsiden din er live :D
 
-## STEG 3: Utvikle en super cool react-app med continuous deployment!
+## STEG 3: Automatisk deploy med github actions
+
+## STEG 4: Utvikle en super cool react-app med continuous deployment!
 
 1. Gjør endringer i koden (start for eksempel med å oppdatere kartets zoom nivå, start koordinater eller bakgrunnskart).
 2. Push oppdateringene dine til git og deploy endringene
