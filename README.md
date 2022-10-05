@@ -72,7 +72,7 @@ Før dere starter må dere ha noe programvare installert:
    npm start
 ```
 
-Dette bør åpne browseren din på http://localhost:3000/react-bedpress.
+Dette bør åpne browseren din på https://localhost:3000/react-bedpress.
 
 HURRA! Du kan nå kalle deg for en React-utvikler!
 
@@ -90,7 +90,7 @@ Du har nå en enkel mal som du kan bygge videre på. For å begynne å jobbe vid
 3. Endre git 'origin' til dit nye repository:
 
 ```
-   git remote set-url origin http://github.com/{{YOUR_GITHUB_USERNAME}}/{{YOUR_REPO_NAME}}
+   git remote set-url origin https://github.com/{{YOUR_GITHUB_USERNAME}}/{{YOUR_REPO_NAME}}
 ```
 
 Sjekk at du har byttet origin ved å skrive
@@ -121,7 +121,7 @@ Koden din skal nå være 'pushet' til ditt nye repo.
 ## STEG 3: Få nettsiden til å kjøre på github-pages.
 
 1. Åpne prosjektet i vs code. (skriv `code .` i terminalen )
-2. Endre homepage i `package.json` til din egen url: `"homepage": "http://{{YOUR_GITHUB_USERNAME}}.github.io/{{YOUR_GITHUB_PROJECT}}",`
+2. Endre homepage i `package.json` til din egen url: `"homepage": "https://{{YOUR_GITHUB_USERNAME}}.github.io/{{YOUR_GITHUB_PROJECT}}",`
    ![package json](public/Images/packagejsonhome.png)
 
 3. Deploy appen til github pages:
@@ -134,11 +134,11 @@ Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kj�
 
 ![package json](public/Images/packagejsonscript.png)
 
-4. Aktiver github pages i github repoet ditt. Gå til settings og skroll ned til GitHub pages section. Velg source `gh-pages`
+4. Aktiver github pages i github repoet ditt. Gå til settings og skroll ned til Pages section. Velg source `gh-pages`
 
 ![activate github pages](public/Images/activate-gh-pages.png)
 
-5. Sjekk om nettsiden din kjører på: `http://github.com/{{YOUR_GITHUB_USERNAME}}/{{YOUR_REPO_NAME}}`
+5. Sjekk om nettsiden din kjører på: `https://github.com/{{YOUR_GITHUB_USERNAME}}/{{YOUR_REPO_NAME}}`
 
 Hurra! nettsiden din er live :D
 
@@ -164,7 +164,7 @@ Tips til andre ting du kan gjøre med kartet:
 - Sjekk ut mapbox gl sine eksempler: https://docs.mapbox.com/mapbox-gl-js/example/
 - Visualisere historiske Oslo bysykkel data: https://oslobysykkel.no/en/open-data/historical
 - Lag et Koropletkart av Norgesbefolkning. En Json fil er lagt ved (se sample_data folderen) som viser norges befolkning delt opp i 5x5km ruter.
-- Visualiser din egen data. Du kan lage geojson filer her: http://geojson.io/#map=2/20.0/0.0
+- Visualiser din egen data. Du kan lage geojson filer her: https://geojson.io/#map=2/20.0/0.0
 
 
 
