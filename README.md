@@ -87,25 +87,63 @@ HURRA! Du kan nå kalle deg for en React-utvikler!
 2. Endre homepage i `package.json` til din egen url: `"homepage": "https://{{YOUR_GITHUB_USERNAME}}.github.io/norkart-webkurs-CICD-React",`
    ![package json](public/Images/packagejsonhome.png)
 
-3. Deploy appen til github pages:
+Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kjøre denne kommandoen siden kildekoden har definert den i scripts i package.json. I tillegg, har du allerede installert pakken `gh-pages` når du kjørte kommandoen `npm install`.
+
+![package json](public/Images/packagejsonscript.png)
+
+3. Aktiver github actions i repoet ditt.
+
+![activate github pages](public/Images/activate-gh-actions.png)
+
+4. Deploy appen til github pages:
 
 ```
    npm run deploy
 ```
 
-Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kjøre denne kommandoen siden kildekoden har definert den i scripts i package.json. I tillegg, har du allerede installert pakken `gh-pages` når du kjørte kommandoen `npm install`.
+5. Sjekk at github action 'pages-build-deployment' kjører
 
-![package json](public/Images/packagejsonscript.png)
+![Github action pages-build-deployment](public/Images/action-pages-build-deployment.png)
 
-4. Aktiver github pages i github repoet ditt. Gå til settings og skroll ned til Pages section. Velg source `gh-pages`
-
-![activate github pages](public/Images/activate-gh-pages.png)
-
-5. Sjekk om nettsiden din kjører på: `https://{{YOUR_GITHUB_USERNAME}}.github.io/norkart-webkurs-CICD-React/`
+6. Når github action er ferdig - sjekk om nettsiden din kjører på: `https://{{YOUR_GITHUB_USERNAME}}.github.io/norkart-webkurs-CICD-React/`
 
 Hurra! nettsiden din er live :D
 
 ## STEG 3: Automatisk deploy med github actions
+For å oppdattere nettsiden må vi manuelt kjøre **npm run deploy** etter å ha endret koden. Hadde det ikke vært greit å automatisert dette slik at nettsiden oppdatteres hver gang main-branchen oppdateres? Dette kan vi gjøre ved hjelp av Github Actions:
+
+1. Generer access token for å deploye nettsiden gjennom Github Actions
+
+For å gi Github Actions tilgang til å lese og deploye repoet vårt, trenger vi ett access token. Gå til https://github.com/settings/tokens og trykk 'Generate new token'.
+<br>
+<br>
+
+![generate github token](public/Images/github-deploy-token.png)
+
+<br>
+<br>
+
+Gi tokenet et navn, f.eks 'deploy-access', og huk av på 'repo'. Klikk så på 'Generate token' og kopier verdien.
+
+<img src="public/Images/github-example-token.png" alt="secret" width="600"/>
+
+<br>
+<br>
+<br>
+
+2. Lag en secret som kan brukes av Github Actions
+
+For å la Github Actions hente tokenet vi nettop lagde, trenger vi en sectet. Trykk på 'New Secret' og gi den et navn, for eksempel 'ACTIONS_DEPLOY_ACCESS_TOKEN', og kopier inn verdien fra forrige steg.
+   <br >
+   <br >
+   <br >
+   <img src="public/Images/github-create-secret.png" alt="secret" width="600"/>
+   <br>
+   <br>
+   <br>
+
+3. Gjør endring i appen og push til main branchen. Dette skal trigge en github action (se '.github\workflows\main.yml' ) som automatisk kjører `npm run deploy`. Når denne actionen er ferdig, skal dette trigge pages-build-deployment workflowen og endringene skal automatisk rulles ut til nettsiden din.
+
 
 ## STEG 4: Utvikle en super cool react-app med continuous deployment!
 
@@ -133,119 +171,7 @@ Tips til andre ting du kan gjøre med kartet:
 
 
 
-## OPTION 1: Automatisk deploy av app
 
-For å oppdattere nettsiden må vi manuelt kjøre **npm run deploy** etter å ha endret koden. Hadde det ikke vært greit å automatisert dette slik at nettsiden oppdatteres hver gang main-branchen oppdateres? Dette kan vi gjøre ved hjelp av Github Actions:
-
-1. Generer access token for å deploye nettsiden gjennom Github Actions
-
-For å gi Github Actions tilgang til å lese og deploye repoet vårt, trenger vi ett access token. Gå til https://github.com/settings/tokens og trykk 'Generate new token'.
-<br>
-<br>
-
-![generate github token](public/Images/github-deploy-token.png)
-
-<br>
-<br>
-
-Gi tokenet et navn, f.eks 'deploy-access', og huk av på 'repo'. Klikk så på 'Generate token' og kopier verdien.
-
-<img src="public/Images/github-example-token.png" alt="secret" width="600"/>
-
-<br>
-<br>
-<br>
-
-2. Lag en secret som kan brukes av Github Actions
-   <br >
-   <br >
-   <br >
-   <img src="public/Images/github-create-secret.png" alt="secret" width="600"/>
-   <br>
-   <br>
-   <br>
-
-
-For å la Github Actions hente tokenet vi nettop lagde, trenger vi en sectet. Trykk på 'New Secret' og gi den et navn, for eksempel 'ACTIONS_DEPLOY_ACCESS_TOKEN', og kopier inn verdien fra forrige steg.
-
-3. Sett opp github actions:
-   <br >
-   <br >
-   <img src="public/Images/create-github-actions.png" alt="create github action" width="400"/>
-
-<br>
-<br>
-
-Ved å følge pilene på bildet ovenfor, genererer vi en enkel løype som bygger og tester applikasjonen hver gang vi oppdatterer main-branchen. Vi vil i tillegg deploye applikasjonen, og legger derfor til enda ett steg helt nederst:
-
-<br>
-
-<pre>
-    - name: Deploy
-      run: |
-        git config --global user.name $user_name
-        git config --global user.email $user_email
-        git remote set-url origin https://${github_token}@github.com/${repository}
-        npm run deploy
-      env:
-        user_name: 'Ettellerannet'
-        user_email: 'Ettellerannet@epost.no'
-        github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-        repository: ${{ github.repository }}
-</pre>
-
-Navn- og epost-informasjon for Github trenger ikke være deres eget, så derfor fyller vi bare inn etellerannet her. 'ACTIONS_DEPLOY_ACCESS_TOKEN' er secreten vi lagde i forrige steg. Dersom dere valgte eget navn må dere huske å bytte navnet her.
-
-I tillegg til å legge til dette steget, må vi gjøre noen endringer:
-
-1. Fjern **10.x** og **12.x** fra node-version listen (vi vil bare bygge og deploye én gang)
-
-2. Fjern **run: npm test** steget, da dette steget ikke vil passere ettersom vi ikke har noen tester.
-
-Filen blir altså seende slik ut:
-
-<pre>
-name: Node.js CI
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
-    - name: Deploy
-      run: |
-        git config --global user.name $user_name
-        git config --global user.email $user_email
-        git remote set-url origin https://${github_token}@github.com/${repository}
-        npm run deploy
-      env:
-        user_name: 'Ettellerannet'
-        user_email: 'Ettellerannet@epost.no'
-        github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-        repository: ${{ github.repository }}
-        
-        
-</pre>
-
-Klikk på commit, og gjerne gjør noen enkle endringer i koden for å se at nettsiden endrer seg når ny kode dyttes til main-branchen! :D
 
 
 ## OPTION 2: Bytt bakgrunnskart
