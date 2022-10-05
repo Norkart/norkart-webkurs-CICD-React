@@ -6,7 +6,7 @@ const AdresseBoksStyle = {
   background: "white",
   padding: 20,
   zIndex: "2",
-  bottom: 220,
+  top: 20,
   right: 20,
   display: "flex",
 };

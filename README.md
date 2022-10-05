@@ -4,7 +4,8 @@ Dette er en konkurranse i regi av IT-Dagene 2021. Konkurransen er enkel. Målet 
 Vi gir dere en enkel boilerplate på en react-applikasjon med mapbox kart og forklarer hvordan denne kan deployes. Dere kan velge om dere ønsker å ta dette som utgangspunkt. Resten er opp til dere.
 
 ## Hvordan Delta
-Send epost med lenke til appen du har laget og en kort beskrivelse av hva du har laget. Alle som deltar, vil bli kontaktet på mail etter fristen har gått ut og vinneren (Juryen's choice) annonseres på mail. Det blir så klart premie! 
+
+Send epost med lenke til appen du har laget og en kort beskrivelse av hva du har laget. Alle som deltar, vil bli kontaktet på mail etter fristen har gått ut og vinneren (Juryen's choice) annonseres på mail. Det blir så klart premie!
 
 - **Frist for å sende innslag:** Tirsdag 19. Januar 2021 23:59
 - **Sendes til:** kari.meling.johannessen@norkart.no
@@ -48,7 +49,7 @@ Før dere starter må dere ha noe programvare installert:
 ## STEG 1: Fork, clone og kjør prosjektet
 
 1. For å få din egen versjon av prosjektet under egen github-bruker fork'er du dette prosjektet. Dette gjøres ved å trykke `fork` oppe i høyre hjørnet.
-Behold default innstillinger.
+   Behold default innstillinger.
 
 2. I terminalen. Finn fram til fillokasjonen hvor dere vil lagre prosjektet og klon repoet (deres egen versjon av prosjektet som dere nettop forket):
 
@@ -58,10 +59,9 @@ Behold default innstillinger.
 
 3. Gå inn i mappen du nettop klonet:
 
- ```
-  cd norkart-webkurs-CICD-React/
- ```
-
+```
+ cd norkart-webkurs-CICD-React/
+```
 
 4. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `mapbox-gl` biblioteket til å vise kart på nettsiden. Dette vil i tillegg installere `gh-pages` som brukes til å deploye nettsiden.
 
@@ -124,12 +124,11 @@ Videre gir vi deg 2 mulige utfordringer med fasit og nærmere instruksjoner. Men
 2. OPTION 2: Lag en meny komponent for å bytte bakgrunnskart.
 
 Tips til andre ting du kan gjøre med kartet:
+
 - Sjekk ut mapbox gl sine eksempler: https://docs.mapbox.com/mapbox-gl-js/example/
 - Visualisere historiske Oslo bysykkel data: https://oslobysykkel.no/en/open-data/historical
 - Lag et Koropletkart av Norgesbefolkning. En Json fil er lagt ved (se sample_data folderen) som viser norges befolkning delt opp i 5x5km ruter.
 - Visualiser din egen data. Du kan lage geojson filer her: https://geojson.io/#map=2/20.0/0.0
-
-
 
 ## OPTION 1: Automatisk deploy av app
 
@@ -244,19 +243,34 @@ jobs:
 
 Klikk på commit, og gjerne gjør noen enkle endringer i koden for å se at nettsiden endrer seg når ny kode dyttes til main-branchen! :D
 
-
 ## OPTION 2: Bytt bakgrunnskart
+
 I dette steget skal du lage en enkel meny for å bytte bakgrunnskartet. Mapbox dokumentasjonen forklarer hvordan det kan gjøres med html og javascript: https://docs.mapbox.com/mapbox-gl-js/example/setstyle/. Med noen få tweeks, kan du få til det samme i din React applikasjon. Her får du noen tips til hvordan å løse oppgaven. Spør gjerne om hjelp hvis du sitter fast.
 ![activate github pages](public/Images/SwapBackground.png)
 
-Det kan være enklest å begynne med å lage menyen i MapboxGLMap komponenten. Når den virker slik som du ønsker kan den flyttes til en egen komponent for ryddighetsskyld. Et løsningforslag på denne oppgaven kan sees i **changeBackgroundLayer** branchen. 
+Det kan være enklest å begynne med å lage menyen i MapboxGLMap komponenten. Når den virker slik som du ønsker kan den flyttes til en egen komponent for ryddighetsskyld. Et løsningforslag på denne oppgaven kan sees i **changeBackgroundLayer** branchen.
 
 De forskjellige bakgrunnene som finnes har følgende ider: "streets-v11", "light-v10", "dark-v10" og "satellite-v9". Bakgrunnskartet settes ved å sette style til `mapbox://styles/mapbox/${backgroundLayerID}`. Det kan være lurt å lagre den foreløpig valgte mapstylen som en state i komponenten (https://reactjs.org/docs/hooks-state.html).
 
 Bakgrunnskartet endres ved et kall til `map.setStyle('mapbox://styles/mapbox/${backgroundLayerID})`. For å få til dette, kan du bruke en `useEffect` hook (https://reactjs.org/docs/hooks-effect.html).
 
-Menyen for valg av bakgrunnskart kan med fordel være en egen komponent. Prøv å skil ut koden for menyen til en egen komponent ved å sende relevant data eller funksjoner som props fra MapboxGLMap komponenten. Løsningsforslag for dette finner du i branchen **changeBackgroundLayerUsingProps**  på github.
+Menyen for valg av bakgrunnskart kan med fordel være en egen komponent. Prøv å skil ut koden for menyen til en egen komponent ved å sende relevant data eller funksjoner som props fra MapboxGLMap komponenten. Løsningsforslag for dette finner du i branchen **changeBackgroundLayerUsingProps** på github.
 
+## OPTION 3: Tegn og Hent Ut Koordinater I Kart
+
+Importerer dere lomponenten "DrawComponent" lages det en liten meny. Trykker dere på firkanten kan dere tegne et polygon i kartet, søppelkassa sletter tegningen. Oppgaven her går ut på å lage støtte for å hente ut koordinatene til figuren som tegnes. Videre kan dere regne ut omkretsen/arealet av figuren.
+
+Anbefaler å ta en titt på eksempelet her: https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-draw/ (OBS eksempelet bruker et bibliotek som heter turf for å regne ut arealet av figuren, denne kan importeres ved å inkludere "import \* as turf from '@turf/turf" i toppen av fila du skal bruke biblioteket i).
+
+MapBox har en masse andre funksjoner for å gjøre tegning i kart. Dokumentasjon på dette finner dere her: https://github.com/mapbox/mapbox-gl-draw/blob/main/docs/API.md
+
+## OPTION 5: Fly Til Adresse
+
+I denne oppgaven skal du lage støtte for å kunne søke opp en vilkårlig adresse i Norge og deretter flytte kartvisningen til denne adressen. Til denne oppgaven har dere fått ett verktøy komponenten AdresseBoks benytter seg av en søkemotor som tar inn en adresse og gir geografiske koordinater (Latitude/Longitude) tilbake. Det anbefales å importere denne komponenten og prøve den litt for å forstå hvordan oppgaven kan løses. \*Hint komponenten LocationsMenu kan også gi inspirasjon.
+
+## OPTION 6: Gjør Noe Annet Kult
+
+Her kan man gjøre noe helt annet eller noe som bygger på oppgavene over. Dette er gjerne oppgave man starter på dersom man er godt kjent med React eller er blitt ferdig med en av de andre oppgavene over. Forslag kan være å bygge på en av de tidligere oppgavene man har fullført, prøve å kombinere noen oppgaver eller finne på noe helt annet.
 
 ### NB
 
