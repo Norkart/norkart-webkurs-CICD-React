@@ -53,7 +53,7 @@ Behold default innstillinger.
 2. I terminalen. Finn fram til fillokasjonen hvor dere vil lagre prosjektet og klon repoet (deres egen versjon av prosjektet som dere nettop forket):
 
 ```
-   git clone https://github.com/{dit_github_brukernavn}/webkurs2020-CICD-React.git
+   git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/webkurs2020-CICD-React.git
 ```
 
 3. Gå inn i mappen du nettop klonet:
