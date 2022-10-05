@@ -53,13 +53,13 @@ Behold default innstillinger.
 2. I terminalen. Finn fram til fillokasjonen hvor dere vil lagre prosjektet og klon repoet (deres egen versjon av prosjektet som dere nettop forket):
 
 ```
-   git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/webkurs2020-CICD-React.git
+   git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/norkart-webkurs-CICD-React.git
 ```
 
 3. Gå inn i mappen du nettop klonet:
 
  ```
-  cd webkurs2020-CICD-React/
+  cd norkart-webkurs-CICD-React/
  ```
 
 
@@ -84,7 +84,7 @@ HURRA! Du kan nå kalle deg for en React-utvikler!
 ## STEG 2: Få nettsiden til å kjøre på github-pages.
 
 1. Åpne prosjektet i vs code. (skriv `code .` i terminalen )
-2. Endre homepage i `package.json` til din egen url: `"homepage": "https://{{YOUR_GITHUB_USERNAME}}.github.io/webkurs2020-CICD-React",`
+2. Endre homepage i `package.json` til din egen url: `"homepage": "https://{{YOUR_GITHUB_USERNAME}}.github.io/norkart-webkurs-CICD-React",`
    ![package json](public/Images/packagejsonhome.png)
 
 3. Deploy appen til github pages:
@@ -101,7 +101,7 @@ Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kj�
 
 ![activate github pages](public/Images/activate-gh-pages.png)
 
-5. Sjekk om nettsiden din kjører på: `https://{{YOUR_GITHUB_USERNAME}}.github.io/webkurs2020-CICD-React/`
+5. Sjekk om nettsiden din kjører på: `https://{{YOUR_GITHUB_USERNAME}}.github.io/norkart-webkurs-CICD-React/`
 
 Hurra! nettsiden din er live :D
 
