@@ -48,10 +48,7 @@ Før dere starter må dere ha noe programvare installert:
 ## STEG 1: Fork, clone og kjør Prosjektet
 
 1. For å få din egen versjon av prosjektet under egen github-bruker fork'er du dette prosjektet. Dette gjøres ved å trykke `fork` oppe i høyre hjørnet.
-Behold default innstillinger:
-
-<img width="781" alt="image" src="https://user-images.githubusercontent.com/6861456/194050147-3e41522f-2bc8-402e-be70-41c76f0d5b88.png">
-
+Behold default innstillinger.
 
 2. I terminalen. Finn fram til fillokasjonen hvor dere vil lagre prosjektet og klon repoet (deres egen versjon av prosjektet som dere nettop forket):
 
