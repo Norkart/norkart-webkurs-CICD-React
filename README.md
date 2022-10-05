@@ -22,7 +22,7 @@ Resten av denne READMEen forklarer hvordan du kan raskt få en boilerplate kart-
 
 Før dere starter må dere ha noe programvare installert:
 
-1. **Git**. Følg instruksjonene som gjelder for ditt OS her: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git. Sjekk at git er instalert:
+1. **Git**. Følg instruksjonene som gjelder for ditt OS her: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git. Sjekk at git er installert:
 
 ```
    git --version
@@ -45,13 +45,22 @@ Før dere starter må dere ha noe programvare installert:
 
 ---
 
-## STEG 1: Klon og kjør Prosjektet
+## STEG 1: Fork, clone og kjør Prosjektet
 
-1. I terminalen. Finn fram til fillokasjonen hvor dere vil lagre prosjektet og klon dette repoet:
+1. For å få din egen versjon av prosjektet under egen github-bruker fork'er du dette prosjektet. Dette gjøres ved å trykke `fork` oppe i høyre hjørnet.
+Behold default innstillinger:
+
+<img width="781" alt="image" src="https://user-images.githubusercontent.com/6861456/194050147-3e41522f-2bc8-402e-be70-41c76f0d5b88.png">
+
+
+2. I terminalen. Finn fram til fillokasjonen hvor dere vil lagre prosjektet og klon repoet (deres egen versjon av prosjektet som dere nettop forket):
 
 ```
-   git clone https://github.com/Norkart/webkurs2020-CICD-React.git
+   git clone https://github.com/{dit_github_brukernavn}/webkurs2020-CICD-React.git
 ```
+Riktig URL kan hentes herfra:
+<img width="417" alt="image" src="https://user-images.githubusercontent.com/6861456/194050477-71fd83df-382e-4396-b444-0aa415150fb2.png">
+
 
 2. Gå inn i mappen du nettop klonet:
 
