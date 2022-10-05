@@ -82,7 +82,7 @@ HURRA! Du kan nå kalle deg for en React-utvikler!
 
 Du har nå en enkel mal som du kan bygge videre på. For å begynne å jobbe videre med prosjektet og for at du skal kunne deploye til din egen github-pages, trenger du å flytte koden over på ditt eget github repository.
 
-1. Lag deg et nytt repository på https://github.com/. Gjerne kall repositoriet **webkurs2020-CICD-React**. Velg public (hvis du har github pro (gratis for studenter) kan du velge å gjøre repoet private. Hvis ikke må det være public for at github-pages skal virke). Ikke initialiser med README, .gitignore eller licence.
+1. Lag deg et nytt repository på https://github.com/. Gjerne kall repositoriet **webkurs2020-CICD-React**. Velg public (Jo mindre du har github Pro bruker som kan ha github pages med private repo). Ikke initialiser med README, .gitignore eller licence.
    ![new repo](public/Images/github_new_repo.png)
 
 2. I terminalen. Sørg for at du er inni prosjektet som du klonet og kjørte i forrige steg. `ctrl c` for å stoppe appen hvis den fortsatt kjører.
