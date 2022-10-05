@@ -84,7 +84,7 @@ HURRA! Du kan nå kalle deg for en React-utvikler!
 ## STEG 2: Få nettsiden til å kjøre på github-pages.
 
 1. Åpne prosjektet i vs code. (skriv `code .` i terminalen )
-2. Endre homepage i `package.json` til din egen url: `"homepage": "https://{{YOUR_GITHUB_USERNAME}}.github.io/{{YOUR_GITHUB_PROJECT}}",`
+2. Endre homepage i `package.json` til din egen url: `"homepage": "https://{{YOUR_GITHUB_USERNAME}}.github.io/webkurs2020-CICD-React",`
    ![package json](public/Images/packagejsonhome.png)
 
 3. Deploy appen til github pages:
@@ -101,7 +101,7 @@ Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kj�
 
 ![activate github pages](public/Images/activate-gh-pages.png)
 
-5. Sjekk om nettsiden din kjører på: `https://github.com/{{YOUR_GITHUB_USERNAME}}/{{YOUR_REPO_NAME}}`
+5. Sjekk om nettsiden din kjører på: `https://{{YOUR_GITHUB_USERNAME}}.github.io/webkurs2020-CICD-React/`
 
 Hurra! nettsiden din er live :D
 
