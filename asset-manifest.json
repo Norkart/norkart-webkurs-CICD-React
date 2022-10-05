@@ -1,13 +1,14 @@
 {
   "files": {
     "main.css": "/webkurs2020-CICD-React/static/css/main.b326aaf9.css",
-    "main.js": "/webkurs2020-CICD-React/static/js/main.3b3b930b.js",
+    "main.js": "/webkurs2020-CICD-React/static/js/main.de69f79b.js",
+    "static/js/mapbox-gl-csp-worker.470d276a.worker.js": "/webkurs2020-CICD-React/static/js/mapbox-gl-csp-worker.470d276a.worker.js",
     "index.html": "/webkurs2020-CICD-React/index.html",
     "main.b326aaf9.css.map": "/webkurs2020-CICD-React/static/css/main.b326aaf9.css.map",
-    "main.3b3b930b.js.map": "/webkurs2020-CICD-React/static/js/main.3b3b930b.js.map"
+    "main.de69f79b.js.map": "/webkurs2020-CICD-React/static/js/main.de69f79b.js.map"
   },
   "entrypoints": [
     "static/css/main.b326aaf9.css",
-    "static/js/main.3b3b930b.js"
+    "static/js/main.de69f79b.js"
   ]
 }
