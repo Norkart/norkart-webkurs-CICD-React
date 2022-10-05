@@ -13,7 +13,6 @@ const DrawComponent = (props) => {
         polygon: true,
         trash: true,
       },
-      defaultMode: "draw_polygon",
     });
     props.MapConnection.addControl(draw);
   }, [props.MapConnection]);

@@ -11,9 +11,9 @@ const CustomTextField = styled(TextField)({
   position: "relative",
 });
 
-export const FritekstSok = () => {
-  const apiKeyState = "01be5250-d43c-49c6-87d5-19c711e32ed0"; //ERLINGS KEY OBSQ
+export const FritekstSok = (props) => {
   const [selectedAdress, setSelectedAdress] = useState();
+  const apiKeyState = "01be5250-d43c-49c6-87d5-19c711e32ed0"; //ERLINGS KEY OBSQ
   const [inputValue, setInputValue] = useState("");
   const [adressOptions, setAdressOptions] = useState([]);
   const [options, setOptions] = useState([]);
@@ -34,11 +34,16 @@ export const FritekstSok = () => {
     let newOptions = [];
 
     if (selectedAdress) {
+      console.log(selectedAdress);
       newOptions = [selectedAdress];
     }
     {
       if (options) {
         newOptions = [...newOptions, ...options];
+      }
+      if (options.length == 1) {
+        console.log(options);
+        props.setInfo(options[0]);
       }
     }
     setAdressOptions(newOptions);

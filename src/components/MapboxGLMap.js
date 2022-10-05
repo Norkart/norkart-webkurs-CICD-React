@@ -2,11 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import mapboxgl from "!mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { FritekstSok } from "./FritekstSok";
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker'; // Load worker code separately with worker-loader
+import MapboxWorker from "worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker"; // Load worker code separately with worker-loader
+import { AdresseBoks } from "./AdresseBoks";
 mapboxgl.workerClass = MapboxWorker; // Wire up loaded worker to be used instead of the default
-
 
 const styles = {
   width: "100%",
@@ -42,7 +41,7 @@ const MapboxGLMap = () => {
 
   return (
     <>
-      <FritekstSok></FritekstSok>
+      <AdresseBoks></AdresseBoks>
       <div ref={(el) => (mapContainer.current = el)} style={styles} />;
     </>
   );
