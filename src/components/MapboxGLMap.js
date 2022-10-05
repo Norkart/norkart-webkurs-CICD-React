@@ -1,7 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import mapboxgl from "mapbox-gl";
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import mapboxgl from "!mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { FritekstSok } from "./FritekstSok";
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker'; // Load worker code separately with worker-loader
+mapboxgl.workerClass = MapboxWorker; // Wire up loaded worker to be used instead of the default
+
 
 const styles = {
   width: "100%",

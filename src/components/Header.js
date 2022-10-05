@@ -1,5 +1,4 @@
 import React from "react";
-import { Search } from "./FritekstSok";
 
 const styles = {
   height: "60px",
