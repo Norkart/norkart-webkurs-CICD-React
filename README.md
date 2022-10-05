@@ -87,9 +87,7 @@ HURRA! Du kan nå kalle deg for en React-utvikler!
 2. Endre homepage i `package.json` til din egen url: `"homepage": "https://{{YOUR_GITHUB_USERNAME}}.github.io/norkart-webkurs-CICD-React",`
    ![package json](public/Images/packagejsonhome.png)
 
-Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kjøre denne kommandoen siden kildekoden har definert den i scripts i package.json. I tillegg, har du allerede installert pakken `gh-pages` når du kjørte kommandoen `npm install`.
 
-![package json](public/Images/packagejsonscript.png)
 
 3. Aktiver github actions i repoet ditt.
 
@@ -100,6 +98,10 @@ Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kj�
 ```
    npm run deploy
 ```
+
+Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kjøre denne kommandoen siden kildekoden har definert den i scripts i package.json. I tillegg, har du allerede installert pakken `gh-pages` når du kjørte kommandoen `npm install`.
+
+![package json](public/Images/packagejsonscript.png)
 
 5. Sjekk at github action 'pages-build-deployment' kjører
 
