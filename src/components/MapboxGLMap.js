@@ -5,7 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 const styles = {
   width: "100%",
   height: "calc(100vh - 80px)",
-  position: "absolute"
+  position: "absolute",
 };
 
 const MapboxGLMap = () => {
@@ -14,12 +14,13 @@ const MapboxGLMap = () => {
 
   useEffect(() => {
     mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_KEY;
+
     const initializeMap = ({ setMap, mapContainer }) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
-        center: [10.408773,63.422091],
-        zoom: 10
+        center: [10.408773, 63.422091],
+        zoom: 10,
       });
 
       map.on("load", () => {
@@ -28,10 +29,12 @@ const MapboxGLMap = () => {
       });
     };
 
-    if (!map) initializeMap({ setMap, mapContainer });
+    if (!map) {
+      initializeMap({ setMap, mapContainer });
+    }
   }, [map]);
 
-  return <div ref={el => (mapContainer.current = el)} style={styles} />;
+  return <div ref={(el) => (mapContainer.current = el)} style={styles} />;
 };
 
 export default MapboxGLMap;
