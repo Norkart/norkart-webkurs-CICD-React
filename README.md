@@ -53,13 +53,20 @@ Før dere starter må dere ha noe programvare installert:
    git clone https://github.com/Norkart/webkurs2020-CICD-React.git
 ```
 
-2. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `mapbox-gl` biblioteket til å vise kart på nettsiden. Dette vil i tillegg installere `gh-pages` som brukes til å deploye nettsiden.
+2. Gå inn i mappen du nettop klonet:
+
+ ```
+  cd webkurs2020-CICD-React/
+ ```
+
+
+3. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `mapbox-gl` biblioteket til å vise kart på nettsiden. Dette vil i tillegg installere `gh-pages` som brukes til å deploye nettsiden.
 
 ```
    npm install
 ```
 
-3. Kjør opp prosjektet lokalt:
+4. Kjør opp prosjektet lokalt:
 
 ```
    npm start
