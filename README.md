@@ -58,25 +58,21 @@ Behold default innstillinger:
 ```
    git clone https://github.com/{dit_github_brukernavn}/webkurs2020-CICD-React.git
 ```
-Riktig URL kan kopieres ved å trykke på Code:
 
-<img width="417" alt="image" src="https://user-images.githubusercontent.com/6861456/194050477-71fd83df-382e-4396-b444-0aa415150fb2.png">
-
-
-2. Gå inn i mappen du nettop klonet:
+3. Gå inn i mappen du nettop klonet:
 
  ```
   cd webkurs2020-CICD-React/
  ```
 
 
-3. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `mapbox-gl` biblioteket til å vise kart på nettsiden. Dette vil i tillegg installere `gh-pages` som brukes til å deploye nettsiden.
+4. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `mapbox-gl` biblioteket til å vise kart på nettsiden. Dette vil i tillegg installere `gh-pages` som brukes til å deploye nettsiden.
 
 ```
    npm install
 ```
 
-4. Kjør opp prosjektet lokalt:
+5. Kjør opp prosjektet lokalt:
 
 ```
    npm start
