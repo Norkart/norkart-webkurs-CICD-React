@@ -8,7 +8,7 @@ Vi gir dere en enkel boilerplate på en react-applikasjon med mapbox kart og for
 Det blir også konkuranse. Det er pris for
 
 1. Første person / gruppe til å sende en fungerende github pages lenke med boilderplate appen (sendes til kari.meling.johannessen@norkart.no)
-2. Jurens choice - Lag noe kult.
+2. Juriens choice - Lag noe kult.
 
 Lykke til!
 
@@ -26,7 +26,7 @@ Før dere starter må dere ha noe programvare installert:
 
 2. **Github**. Lag deg en bruker her https://github.com/
 
-3. **Node.js med npm**. Det annbefales å bruke node version manager for å installere node siden dette lar deg enkelt bytte mellom node versjoner. For **Windows**: https://docs.microsoft.com/en-us/windows/nodejs/setup-on-windows. For **Mac/Linux**:
+3. **Node.js med npm**. Det anbefales å bruke node version manager for å installere node siden dette lar deg enkelt bytte mellom node versjoner. For **Windows**: https://docs.microsoft.com/en-us/windows/nodejs/setup-on-windows. For **Mac/Linux**:
    https://www.stanleyulili.com/node/how-to-install-node-and-npm-on-mac-or-linux/. Sjekk at node og npm er installert:
 
 ```
@@ -37,7 +37,7 @@ Før dere starter må dere ha noe programvare installert:
     npm --version
 ```
 
-4. **En code editor (vs code annbefales)**. https://code.visualstudio.com/download
+4. **En code editor (vs code anbefales)**. https://code.visualstudio.com/download
 
 ---
 
@@ -200,3 +200,6 @@ Tips til andre ting du kan gjøre med kartet:
 
 - Mapbox tokenet til dette prosjektet vil utløpe etter et par uker. Du kan enkelt lage din egen token på https://account.mapbox.com/access-tokens. Det er gratis helt frem til du får veldig stor traffikk mot appen din. Bytt ut tokenen din i,'.env' filen for å ta i bruk din egen token. Det annbefales ikke å legge tokenet i kode på et public github repo (bruk private eller la være å pushe .env fila til git). I Mapbox Studio kan du også lage custom kart (f.eks dark mode med rosa vann) som du kan vise på nettsiden.
 - Fritekstsøk Api nøkkelen vil også deaktiveres. Du kan få tak din egen nøkkel til testing her: https://developer.norkart.no/
+
+- Mapbox tokenet til dette prosjektet vil utløpe etter et par uker. Du kan enkelt lage din egen token på https://account.mapbox.com/access-tokens. Det er gratis helt frem til du får veldig stor traffikk mot appen din. Bytt ut tokenen din i,'.env' filen for å ta i bruk din egen token. Det anbefales ikke å legge tokenet i kode på et public github repo (bruk private eller la være å pushe .env fila til git). I Mapbox Studio kan du også lage custom kart (f.eks dark mode med rosa vann) som du kan vise på nettsiden.
+
