@@ -13,15 +13,12 @@ const CustomTextField = styled(TextField)({
 });
 
 export const FritekstSok = (props) => {
-
   const apiKeyState = process.env.REACT_APP_FRITEKSTSOK_API_KEY;
   const [inputValue, setInputValue] = useState("");
   const [adressOptions, setAdressOptions] = useState([]);
   const [options, setOptions] = useState([]);
   const selectedAdress = props.selectedAdress;
   const setSelectedAdress = props.setSelectedAdress;
-
-
 
   useEffect(() => {
     const fetchFromFritekstsok = async (input) => {
@@ -33,7 +30,6 @@ export const FritekstSok = (props) => {
       setAdressOptions([]);
     }
     fetchFromFritekstsok(inputValue);
-
   }, [selectedAdress, inputValue, apiKeyState]);
 
   useEffect(() => {
