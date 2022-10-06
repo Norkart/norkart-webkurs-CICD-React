@@ -21,17 +21,20 @@ export const FritekstSok = (props) => {
   const selectedAdress = props.selectedAdress;
   const setSelectedAdress = props.setSelectedAdress;
 
-  const fetchFromFritekstsok = async (input) => {
-    const results = await fritekstsok(input, apiKeyState);
-    setOptions(results);
-  };
+
 
   useEffect(() => {
+    const fetchFromFritekstsok = async (input) => {
+      const results = await fritekstsok(input, apiKeyState);
+      setOptions(results);
+    };
+
     if (inputValue === "") {
       setAdressOptions([]);
     }
     fetchFromFritekstsok(inputValue);
-  }, [selectedAdress, inputValue]);
+
+  }, [selectedAdress, inputValue, apiKeyState]);
 
   useEffect(() => {
     let newOptions = [];
