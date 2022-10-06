@@ -160,13 +160,9 @@ Nå står du fritt til å gjøre noe det du vil med appen, mulige utfordringer:
 I dette steget skal du lage en enkel meny for å bytte bakgrunnskartet. Mapbox dokumentasjonen forklarer hvordan det kan gjøres med html og javascript: https://docs.mapbox.com/mapbox-gl-js/example/setstyle/. Med noen få tweeks, kan du få til det samme i din React applikasjon. Her får du noen tips til hvordan å løse oppgaven. Spør gjerne om hjelp hvis du sitter fast.
 ![activate github pages](public/Images/SwapBackground.png)
 
-Det kan være enklest å begynne med å lage menyen i MapboxGLMap komponenten. Når den virker slik som du ønsker kan den flyttes til en egen komponent for ryddighetsskyld. Et løsningforslag på denne oppgaven kan sees i **changeBackgroundLayer** branchen.
+De forskjellige bakgrunnene som finnes har følgende ider: "streets-v11", "light-v10", "dark-v10" og "satellite-v9". Bakgrunnskartet endres ved et kall til `map.setStyle('mapbox://styles/mapbox/${backgroundLayerID})`. For å få til dette, kan du bruke en `useEffect` hook (https://reactjs.org/docs/hooks-effect.html).
 
-De forskjellige bakgrunnene som finnes har følgende ider: "streets-v11", "light-v10", "dark-v10" og "satellite-v9". Bakgrunnskartet settes ved å sette style til `mapbox://styles/mapbox/${backgroundLayerID}`. Det kan være lurt å lagre den foreløpig valgte mapstylen som en state i komponenten (https://reactjs.org/docs/hooks-state.html).
-
-Bakgrunnskartet endres ved et kall til `map.setStyle('mapbox://styles/mapbox/${backgroundLayerID})`. For å få til dette, kan du bruke en `useEffect` hook (https://reactjs.org/docs/hooks-effect.html).
-
-Menyen for valg av bakgrunnskart kan med fordel være en egen komponent. Prøv å skil ut koden for menyen til en egen komponent ved å sende relevant data eller funksjoner som props fra MapboxGLMap komponenten. For å lage denne komponenten kan man ta utgangspunkt i oppsettet som ligger i LocationMenu.
+For å lage denne komponenten kan man ta utgangspunkt i oppsettet som ligger i LocationMenu.
 
 ## OPTION 2: Tegn og Hent Ut Koordinater I Kart
 

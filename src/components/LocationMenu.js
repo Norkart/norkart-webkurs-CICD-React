@@ -20,6 +20,7 @@ const locations = [
 const LocationMenu = (props) => {
   const map = props.mapConnection;
   console.log(map);
+  
   const flyTo = (coordinates) => {
     map.flyTo({ center: coordinates });
   };
