@@ -9,14 +9,16 @@ const CustomTextField = styled(TextField)({
   backgroundColor: "white",
   borderRadius: 10,
   position: "relative",
+  width: "20vw",
 });
 
 export const FritekstSok = (props) => {
-  const [selectedAdress, setSelectedAdress] = useState();
-  const apiKeyState = "";
+  const apiKeyState = "01be5250-d43c-49c6-87d5-19c711e32ed0";
   const [inputValue, setInputValue] = useState("");
   const [adressOptions, setAdressOptions] = useState([]);
   const [options, setOptions] = useState([]);
+  const selectedAdress = props.selectedAdress;
+  const setSelectedAdress = props.setSelectedAdress;
 
   const fetchFromFritekstsok = async (input) => {
     const results = await fritekstsok(input, apiKeyState);
@@ -36,16 +38,12 @@ export const FritekstSok = (props) => {
     if (selectedAdress) {
       newOptions = [selectedAdress];
     }
-    {
-      if (options) {
-        newOptions = [...newOptions, ...options];
-      }
-      if (options.length == 1) {
-        props.setInfo(options[0]);
-      }
+    if (options) {
+      newOptions = [...newOptions, ...options];
     }
+
     setAdressOptions(newOptions);
-  }, [options]);
+  }, [options, selectedAdress]);
 
   return (
     <div>

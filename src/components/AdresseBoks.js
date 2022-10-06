@@ -6,29 +6,31 @@ const AdresseBoksStyle = {
   background: "white",
   padding: 20,
   zIndex: "2",
-  top: 20,
-  right: 20,
-  display: "flex",
+  top: 60,
+  right: 0,
 };
 
-export const AdresseBoks = (props) => {
-  const [info, setInfo] = useState(null);
+export const AdresseBoks = () => {
+  const [selectedAdress, setSelectedAdress] = useState(null);
 
   return (
-    <>
-      {info ? (
-        <div style={AdresseBoksStyle}>
+    <div style={AdresseBoksStyle}>
+      <FritekstSok
+        selectedAdress={selectedAdress}
+        setSelectedAdress={setSelectedAdress}
+      ></FritekstSok>
+      {selectedAdress ? (
+        <div>
           <ul>
-            <li>id: {info.id}</li>
-            <li>Latitude: {info.latlng.lat}</li>
-            <li>Longitude: {info.latlng.lng}</li>
-            <li>Text: {info.text}</li>
+            <li>id: {selectedAdress.id}</li>
+            <li>Latitude: {selectedAdress.latlng.lat}</li>
+            <li>Longitude: {selectedAdress.latlng.lng}</li>
+            <li>Text: {selectedAdress.text}</li>
           </ul>
         </div>
       ) : (
         <></>
       )}
-      <FritekstSok info={info} setInfo={setInfo}></FritekstSok>
-    </>
+    </div>
   );
 };
