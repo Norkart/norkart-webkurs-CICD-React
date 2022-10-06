@@ -153,14 +153,9 @@ npm run deploy
 ```
 
 Endringene du gjør vil automatisk oppdateres på nettsiden din! Happy coding :D
-Videre gir vi deg 2 mulige utfordringer med fasit og nærmere instruksjoner. Men du står fritt til å gjøre noe helt annet hvis du har en kul ide til appen. Mulige utfordringer:
+Nå står du fritt til å gjøre noe det du vil med appen, mulige utfordringer:
 
-1. OPTION 1: Set opp automatisk deploy av appen trigget når main branchen oppdaterses.
-2. OPTION 2: Lag en meny komponent for å bytte bakgrunnskart.
-
-## OPTION 1: Automatisk deploy av app
-
-## OPTION 2: Bytt bakgrunnskart
+## OPTION 1: Bytt bakgrunnskart
 
 I dette steget skal du lage en enkel meny for å bytte bakgrunnskartet. Mapbox dokumentasjonen forklarer hvordan det kan gjøres med html og javascript: https://docs.mapbox.com/mapbox-gl-js/example/setstyle/. Med noen få tweeks, kan du få til det samme i din React applikasjon. Her får du noen tips til hvordan å løse oppgaven. Spør gjerne om hjelp hvis du sitter fast.
 ![activate github pages](public/Images/SwapBackground.png)
@@ -171,9 +166,9 @@ De forskjellige bakgrunnene som finnes har følgende ider: "streets-v11", "light
 
 Bakgrunnskartet endres ved et kall til `map.setStyle('mapbox://styles/mapbox/${backgroundLayerID})`. For å få til dette, kan du bruke en `useEffect` hook (https://reactjs.org/docs/hooks-effect.html).
 
-Menyen for valg av bakgrunnskart kan med fordel være en egen komponent. Prøv å skil ut koden for menyen til en egen komponent ved å sende relevant data eller funksjoner som props fra MapboxGLMap komponenten. Løsningsforslag for dette finner du i branchen **changeBackgroundLayerUsingProps** på github.
+Menyen for valg av bakgrunnskart kan med fordel være en egen komponent. Prøv å skil ut koden for menyen til en egen komponent ved å sende relevant data eller funksjoner som props fra MapboxGLMap komponenten. For å lage denne komponenten kan man ta utgangspunkt i oppsettet som ligger i LocationMenu.
 
-## OPTION 3: Tegn og Hent Ut Koordinater I Kart
+## OPTION 2: Tegn og Hent Ut Koordinater I Kart
 
 Importerer dere lomponenten "DrawComponent" lages det en liten meny. Trykker dere på firkanten kan dere tegne et polygon i kartet, søppelkassa sletter tegningen. Oppgaven her går ut på å lage støtte for å hente ut koordinatene til figuren som tegnes. Videre kan dere regne ut omkretsen/arealet av figuren.
 
@@ -181,11 +176,11 @@ Anbefaler å ta en titt på eksempelet her: https://docs.mapbox.com/mapbox-gl-js
 
 MapBox har en masse andre funksjoner for å gjøre tegning i kart. Dokumentasjon på dette finner dere her: https://github.com/mapbox/mapbox-gl-draw/blob/main/docs/API.md
 
-## OPTION 5: Fly Til Adresse
+## OPTION 3: Fly Til Adresse
 
 I denne oppgaven skal du lage støtte for å kunne søke opp en vilkårlig adresse i Norge og deretter flytte kartvisningen til denne adressen. Til denne oppgaven har dere fått ett verktøy komponenten AdresseBoks benytter seg av en søkemotor som tar inn en adresse og gir geografiske koordinater (Latitude/Longitude) tilbake. Det anbefales å importere denne komponenten og prøve den litt for å forstå hvordan oppgaven kan løses. \*Hint komponenten LocationsMenu kan også gi inspirasjon.
 
-## OPTION 6: Gjør Noe Annet Kult
+## OPTION 4: Gjør Noe Annet Kult
 
 Her kan man gjøre noe helt annet eller noe som bygger på oppgavene over. Dette er gjerne oppgave man starter på dersom man er godt kjent med React eller er blitt ferdig med en av de andre oppgavene over. Forslag kan være å bygge på en av de tidligere oppgavene man har fullført, prøve å kombinere noen oppgaver eller finne på noe helt annet.
 
