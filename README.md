@@ -149,7 +149,6 @@ For å la Github Actions hente tokenet vi nettop lagde, trenger vi en sectet. Tr
 git add .
 git commit -m 'Your commit message'
 git push origin main
-npm run deploy
 ```
 
 Endringene du gjør vil automatisk oppdateres på nettsiden din! Happy coding :D
