@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FritekstSok } from "./FritekstSok";
 
 const AdresseBoksStyle = {
@@ -10,8 +10,14 @@ const AdresseBoksStyle = {
   right: 0,
 };
 
-export const AdresseBoks = () => {
+export const AdresseBoks = (props) => {
   const [selectedAdress, setSelectedAdress] = useState(null);
+  const map = props.mapConnection;
+
+  useEffect(() => {
+    selectedAdress && map.flyTo({ center: [selectedAdress.latlng.lng, selectedAdress.latlng.lat] })
+  }, [map, selectedAdress])
+
 
   return (
     <div style={AdresseBoksStyle}>
