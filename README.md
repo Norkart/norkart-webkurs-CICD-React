@@ -1,20 +1,15 @@
-# Velkommen til Konkurranse med Norkart!
+# Velkommen til kurs med Norkart!
 
-Dette er en konkurranse i regi av IT-Dagene 2021. Konkurransen er enkel. Målet er å lage den kuleste/fineste/morsomste/nyttigste kart-appen og deploye den (for eksempel på github-pages).
-Vi gir dere en enkel boilerplate på en react-applikasjon med mapbox kart og forklarer hvordan denne kan deployes. Dere kan velge om dere ønsker å ta dette som utgangspunkt. Resten er opp til dere.
-
-## Hvordan Delta
-Send epost med lenke til appen du har laget og en kort beskrivelse av hva du har laget. Alle som deltar, vil bli kontaktet på mail etter fristen har gått ut og vinneren (Juryen's choice) annonseres på mail. Det blir så klart premie! 
-
-- **Frist for å sende innslag:** Tirsdag 19. Januar 2021 23:59
-- **Sendes til:** kari.meling.johannessen@norkart.no
-- Hvis du foretrekker å kode med et annet front-end bibliotek (eg. Vue, Angular, vannila JS/HTML/css) eller et annet kart-bibliotek (e.g Leaflet, deck.gl) så er det helt greit men appen bør involvere kart.
-- Dere kan gjerne jobbe i grupper. Bare skriv kontaktinformasjon til alle gruppemedlemmene i mailen.
-- Denne konkurransen er basert på et kurs vi tidligere har holdt med linjeforeningene Abakus og Hybrida. Dersom du deltok på kurset, kan du gjerne bygge videre på det du gjorde da.
+Vi gir dere en enkel boilerplate på en react-applikasjon med mapbox kart og forklarer hvordan denne kan deployes til github pages. Videre kan dere:
+ - sette opp automatisk utrulling ved bruk av github actions.
+ - utvikle mer funksjonalitet i appen.
+ 
+ Det blir også konkuranse. Det er pris for
+ 
+1. Første person / gruppe til å sende en fungerende github pages lenke med boilderplate appen (sendes til kari.meling.johannessen@norkart.no)
+2. Jurens choice - Lag noe kult.
 
 Lykke til!
-
-Resten av denne READMEen forklarer hvordan du kan raskt få en boilerplate kart-webapplikasjon live. Ved å få appen raskt ut i produksjon og ved å videreutvikle den med 'Continuous Integration' og 'Continuous Delivery' (CICD) prinsippet, kan nye features og bug-fixes effektivt og kontinuerlig integreres i appen din og du kan enkelt vise frem til andre hva du har laget.
 
 ---
 
