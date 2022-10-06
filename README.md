@@ -159,7 +159,7 @@ Nå står du fritt til å gjøre noe det du vil med appen, mulige utfordringer:
 I dette steget skal du lage en enkel meny for å bytte bakgrunnskartet. Mapbox dokumentasjonen forklarer hvordan det kan gjøres med html og javascript: https://docs.mapbox.com/mapbox-gl-js/example/setstyle/. Med noen få tweeks, kan du få til det samme i din React applikasjon. Her får du noen tips til hvordan å løse oppgaven. Spør gjerne om hjelp hvis du sitter fast.
 ![activate github pages](public/Images/SwapBackground.png)
 
-De forskjellige bakgrunnene som finnes har følgende ider: "streets-v11", "light-v10", "dark-v10" og "satellite-v9". Bakgrunnskartet endres ved et kall til `map.setStyle('mapbox://styles/mapbox/${backgroundLayerID})`.
+De forskjellige bakgrunnene som finnes har følgende ider: "streets-v11", "light-v10", "dark-v10" og "satellite-v9". Bakgrunnskartet endres ved et kall til `map.setStyle('mapbox://styles/mapbox/${layerId}')`.
 
 For å lage denne komponenten kan man ta utgangspunkt i oppsettet som ligger i LocationMenu.
 
