@@ -8,7 +8,7 @@ Vi gir dere en enkel boilerplate på en react-applikasjon med mapbox kart og for
 Det blir også konkuranse. Det er pris for
 
 1. Første person / gruppe til å sende en fungerende github pages lenke med boilderplate appen (sendes til kari.meling.johannessen@norkart.no)
-2. Jurens choice - Lag noe kult.
+2. Juriens choice - Lag noe kult.
 
 Lykke til!
 
