@@ -5,7 +5,7 @@ const menuStyle = {
   background: "white",
   padding: 20,
   zIndex: "2",
-  top: 120,
+  top: "10vh",
   display: "flex",
 };
 
@@ -18,14 +18,16 @@ const locations = [
 ];
 
 const LocationMenu = (props) => {
+  const map = props.mapConnection;
+  console.log(map);
   const flyTo = (coordinates) => {
-    props.MapConnection.flyTo({ center: coordinates });
+    map.flyTo({ center: coordinates });
   };
 
   // Om vi har tilgang til kartet, render component. Ellers returner et tomt HTML objekt.
   return (
     <>
-      {props.MapConnection ? (
+      {map ? (
         <div style={menuStyle}>
           {locations.map((location) => (
             <div key={location.center}>

@@ -13,7 +13,7 @@ const CustomTextField = styled(TextField)({
 });
 
 export const FritekstSok = (props) => {
-  const apiKeyState = "01be5250-d43c-49c6-87d5-19c711e32ed0";
+  const apiKeyState = "";
   const [inputValue, setInputValue] = useState("");
   const [adressOptions, setAdressOptions] = useState([]);
   const [options, setOptions] = useState([]);
