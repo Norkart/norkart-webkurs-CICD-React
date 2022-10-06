@@ -3,9 +3,9 @@ import React, { useEffect, useRef, useState } from "react";
 import mapboxgl from "!mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker'; // Load worker code separately with worker-loader
+import MapboxWorker from "worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker"; // Load worker code separately with worker-loader
+import { AdresseBoks } from "./AdresseBoks";
 mapboxgl.workerClass = MapboxWorker; // Wire up loaded worker to be used instead of the default
-
 
 const styles = {
   width: "100%",
@@ -39,7 +39,12 @@ const MapboxGLMap = () => {
     }
   }, [map]);
 
-  return <div ref={(el) => (mapContainer.current = el)} style={styles} />;
+  return (
+    <>
+      <AdresseBoks></AdresseBoks>
+      <div ref={(el) => (mapContainer.current = el)} style={styles} />;
+    </>
+  );
 };
 
 export default MapboxGLMap;

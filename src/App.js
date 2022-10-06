@@ -3,13 +3,13 @@ import Header from "./components/Header";
 import MapboxGLMap from "./components/MapboxGLMap";
 
 const styles = {
-  overflow:'hidden'
-}
+  overflow: "hidden",
+};
 
 function App() {
   return (
     <div style={styles}>
-      <Header/>
+      <Header />
       <MapboxGLMap />
     </div>
   );
