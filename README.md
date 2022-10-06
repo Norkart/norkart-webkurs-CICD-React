@@ -166,7 +166,7 @@ For å lage denne komponenten kan man ta utgangspunkt i oppsettet som ligger i L
 
 ## OPTION 2: Tegn og Hent Ut Koordinater I Kart
 
-Importerer dere lomponenten "DrawComponent" lages det en liten meny. Trykker dere på firkanten kan dere tegne et polygon i kartet, søppelkassa sletter tegningen. Oppgaven her går ut på å lage støtte for å hente ut koordinatene til figuren som tegnes. Videre kan dere regne ut omkretsen/arealet av figuren.
+Importerer dere komponenten "DrawComponent" lages det en liten meny. Trykker dere på firkanten kan dere tegne et polygon i kartet, søppelkassa sletter tegningen. Oppgaven her går ut på å lage støtte for å hente ut koordinatene til figuren som tegnes. Videre kan dere regne ut omkretsen/arealet av figuren.
 
 Anbefaler å ta en titt på eksempelet her: https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-draw/ (OBS eksempelet bruker et bibliotek som heter turf for å regne ut arealet av figuren, denne kan importeres ved å inkludere "import \* as turf from '@turf/turf" i toppen av fila du skal bruke biblioteket i).
 
