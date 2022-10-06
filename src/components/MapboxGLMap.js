@@ -5,7 +5,6 @@ import "mapbox-gl/dist/mapbox-gl.css";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import MapboxWorker from "worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker"; // Load worker code separately with worker-loader
 import LocationMenu from "./LocationMenu";
-import { BackgroundMapChanger } from "./BackgroundMapChanger";
 mapboxgl.workerClass = MapboxWorker; // Wire up loaded worker to be used instead of the default
 
 const styles = {
@@ -16,7 +15,6 @@ const styles = {
 
 const MapboxGLMap = () => {
   const [map, setMap] = useState(null);
-
   const mapContainer = useRef(null);
 
   useEffect(() => {
@@ -43,8 +41,7 @@ const MapboxGLMap = () => {
 
   return (
     <>
-      <BackgroundMapChanger map={map} />
-      {/* <LocationMenu mapConnection={map}></LocationMenu> */}
+      <LocationMenu mapConnection={map}></LocationMenu>
       <div ref={(el) => (mapContainer.current = el)} style={styles} />;
     </>
   );
