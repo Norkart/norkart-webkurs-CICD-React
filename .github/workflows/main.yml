@@ -8,8 +8,11 @@ on:
     branches:
       - 'main'
 
+env:
+  CI: false
+
 jobs:
-  build-deploy:
+  build-deploy:  
 
     runs-on: ubuntu-latest
 
