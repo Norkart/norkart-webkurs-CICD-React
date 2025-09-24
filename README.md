@@ -1,14 +1,9 @@
-# Velkommen til kurs med Norkart!
+# Velkommen til workshop med Norkart!
 
 Vi gir dere en enkel boilerplate på en react-applikasjon med mapbox kart og forklarer hvordan denne kan deployes til github pages. Videre kan dere:
 
 - sette opp automatisk utrulling ved bruk av github actions.
 - utvikle mer funksjonalitet i appen.
-
-Det blir også konkuranse. Det er pris for
-
-1. Første person / gruppe til å sende en fungerende github pages lenke med boilderplate appen (sendes til kari.meling.johannessen@norkart.no)
-2. Juriens choice - Lag noe kult.
 
 Lykke til!
 
@@ -26,9 +21,9 @@ Før dere starter må dere ha noe programvare installert:
 
 2. **Github**. Lag deg en bruker her https://github.com/
 
-3. **Node.js med npm**. Det anbefales å bruke node version manager for å installere node siden dette lar deg enkelt bytte mellom node versjoner. For **Windows**: https://docs.microsoft.com/en-us/windows/nodejs/setup-on-windows. For **Mac/Linux**:
-   https://www.stanleyulili.com/node/how-to-install-node-and-npm-on-mac-or-linux/. Sjekk at node og npm er installert:
+3. **Node.js med npm** https://nodejs.org/en/download
 
+Sjekk at du har fått installert node med npm!
 ```
    node --version
 ```
