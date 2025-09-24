@@ -62,7 +62,7 @@ Sjekk at du har fått installert node med npm!
 5. Kjør opp prosjektet lokalt:
 
 ```
-   npm start
+   npm run dev
 ```
 
 Dette bør åpne browseren din på https://localhost:3000/react-bedpress.
