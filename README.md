@@ -137,6 +137,8 @@ For å la Github Actions hente tokenet vi nettop lagde, trenger vi en sectet. Tr
 
 ## STEG 4: Utvikle en super cool react-app med continuous deployment!
 
+TODO: Endre guiden til å bruke maplibre istedenfor mapbox-gl
+
 1. Gjør endringer i koden (start for eksempel med å oppdatere kartets zoom nivå, start koordinater eller bakgrunnskart).
 2. Push oppdateringene dine til git og deploy endringene
 

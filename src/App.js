@@ -1,6 +1,5 @@
-import React from "react";
 import Header from "./components/Header";
-import MapboxGLMap from "./components/MapboxGLMap";
+import MapLibreMap from './components/MapLibreMap';
 
 const styles = {
   overflow: "hidden",
@@ -10,7 +9,7 @@ function App() {
   return (
     <div style={styles}>
       <Header />
-      <MapboxGLMap />
+      <MapLibreMap />
     </div>
   );
 }
