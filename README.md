@@ -137,7 +137,7 @@ For å la Github Actions hente tokenet vi nettop lagde, trenger vi en sectet. Tr
 
 ## STEG 4: Utvikle en super cool react-app med continuous deployment!
 
-TODO: Endre guiden til å bruke maplibre istedenfor mapbox-gl
+
 
 1. Gjør endringer i koden (start for eksempel med å oppdatere kartets zoom nivå, start koordinater eller bakgrunnskart).
 2. Push oppdateringene dine til git og deploy endringene
@@ -151,43 +151,7 @@ git push origin main
 Endringene du gjør vil automatisk oppdateres på nettsiden din! Happy coding :D
 Nå står du fritt til å gjøre noe det du vil med appen, mulige utfordringer:
 
-## OPTION 1: Bytt bakgrunnskart
 
-I dette steget skal du lage en enkel meny for å bytte bakgrunnskartet. Mapbox dokumentasjonen forklarer hvordan det kan gjøres med html og javascript: https://docs.mapbox.com/mapbox-gl-js/example/setstyle/. Med noen få tweeks, kan du få til det samme i din React applikasjon. Her får du noen tips til hvordan å løse oppgaven. Spør gjerne om hjelp hvis du sitter fast.
-![activate github pages](public/Images/SwapBackground.png)
-
-De forskjellige bakgrunnene som finnes har følgende ider: "streets-v11", "light-v10", "dark-v10" og "satellite-v9". Bakgrunnskartet endres ved et kall til `map.setStyle('mapbox://styles/mapbox/${layerId}')`.
-
-For å lage denne komponenten kan man ta utgangspunkt i oppsettet som ligger i LocationMenu.
-
-## OPTION 2: Tegn og Hent Ut Koordinater I Kart
-
-Importerer dere komponenten "DrawComponent" lages det en liten meny. Trykker dere på firkanten kan dere tegne et polygon i kartet, søppelkassa sletter tegningen. Oppgaven her går ut på å lage støtte for å hente ut koordinatene til figuren som tegnes. Videre kan dere regne ut omkretsen/arealet av figuren.
-
-Anbefaler å ta en titt på eksempelet her: https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-draw/ (OBS eksempelet bruker et bibliotek som heter turf for å regne ut arealet av figuren, denne kan importeres ved å inkludere "import \* as turf from '@turf/turf" i toppen av fila du skal bruke biblioteket i).
-
-MapBox har en masse andre funksjoner for å gjøre tegning i kart. Dokumentasjon på dette finner dere her: https://github.com/mapbox/mapbox-gl-draw/blob/main/docs/API.md
-
-## OPTION 3: Fly Til Adresse
-
-I denne oppgaven skal du lage støtte for å kunne søke opp en vilkårlig adresse i Norge og deretter flytte kartvisningen til denne adressen. Til denne oppgaven har dere fått ett verktøy komponenten AdresseBoks benytter seg av en søkemotor som tar inn en adresse og gir geografiske koordinater (Latitude/Longitude) tilbake. Det anbefales å importere denne komponenten og prøve den litt for å forstå hvordan oppgaven kan løses. \*Hint komponenten LocationsMenu kan også gi inspirasjon.
-
-## OPTION 4: Gjør Noe Annet Kult
-
-Her kan man gjøre noe helt annet eller noe som bygger på oppgavene over. Dette er gjerne oppgave man starter på dersom man er godt kjent med React eller er blitt ferdig med en av de andre oppgavene over. Forslag kan være å bygge på en av de tidligere oppgavene man har fullført, prøve å kombinere noen oppgaver eller finne på noe helt annet.
-
-Tips til andre ting du kan gjøre med kartet:
-
-- Sjekk ut mapbox gl sine eksempler: https://docs.mapbox.com/mapbox-gl-js/example/
-- Visualisere historiske Oslo bysykkel data: https://oslobysykkel.no/en/open-data/historical
-- Lag et Koropletkart av Norgesbefolkning. En Json fil er lagt ved (se sample_data folderen) som viser norges befolkning delt opp i 5x5km ruter.
-- Visualiser din egen data. Du kan lage geojson filer her: https://geojson.io/#map=2/20.0/0.0
-
-### NB
-
-- Mapbox tokenet til dette prosjektet vil utløpe etter et par uker. Du kan enkelt lage din egen token på https://account.mapbox.com/access-tokens. Det er gratis helt frem til du får veldig stor traffikk mot appen din. Bytt ut tokenen din i,'.env' filen for å ta i bruk din egen token. Det annbefales ikke å legge tokenet i kode på et public github repo (bruk private eller la være å pushe .env fila til git). I Mapbox Studio kan du også lage custom kart (f.eks dark mode med rosa vann) som du kan vise på nettsiden.
-
-- Fritekstsøk Api nøkkelen vil også deaktiveres. Du kan få tak din egen nøkkel til testing her: https://developer.norkart.no/
-
-
-
+TODO: Lag options ( Se på orignalt repo )
+Her er en tutorial:
+https://maplibre-react-components.pentatrion.com/tutorial
