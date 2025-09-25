@@ -157,3 +157,7 @@ Gjerne ta utgangspunkt i [Maplibre sin torturial](https://maplibre-react-compone
 *ℹ️ Husk at vi bruker typeScript og ikke javascript, så du må kanskje gjøre noen små endringer på koden i torturialen for at det skal funke. Spør gjerne om hjelp!*
 
 
+### Option 2: Legg til tegneverktøy i kartet
+
+Legg til komponenten DrawComponent som en child av MapLibreMap i MapLibreMap.tsx.
+Har tatt utganspunkt i [dette Maplibre eksempelet](https://maplibre.org/maplibre-gl-js/docs/examples/draw-geometries-with-terra-draw/) for å lage denne React komponenten.
