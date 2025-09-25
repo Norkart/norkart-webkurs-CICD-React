@@ -1,6 +1,6 @@
 # Velkommen til workshop med Norkart!
 
-Vi gir dere en enkel boilerplate på en react-applikasjon med mapbox kart og forklarer hvordan denne kan deployes til github pages. Videre kan dere:
+Vi gir dere en enkel boilerplate på en react-applikasjon med maplibre kart og forklarer hvordan denne kan deployes til github pages. Videre kan dere:
 
 - sette opp automatisk utrulling ved bruk av github actions.
 - utvikle mer funksjonalitet i appen.
@@ -53,7 +53,7 @@ Sjekk at du har fått installert node med npm!
  cd norkart-webkurs-CICD-React/
 ```
 
-4. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `mapbox-gl` biblioteket til å vise kart på nettsiden. Dette vil i tillegg installere `gh-pages` som brukes til å deploye nettsiden.
+4. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `maplibre-gl` biblioteket til å vise kart på nettsiden. Dette vil i tillegg installere `gh-pages` som brukes til å deploye nettsiden.
 
 ```
    npm install
@@ -65,7 +65,7 @@ Sjekk at du har fått installert node med npm!
    npm run dev
 ```
 
-Dette bør åpne browseren din på https://localhost:3000/react-bedpress.
+Dette bør åpne browseren din på http://localhost:5173/react-bedpress/.
 
 HURRA! Du kan nå kalle deg for en React-utvikler!
 
@@ -151,7 +151,9 @@ git push origin main
 Endringene du gjør vil automatisk oppdateres på nettsiden din! Happy coding :D
 Nå står du fritt til å gjøre noe det du vil med appen, mulige utfordringer:
 
+### Option 1: Følg torturialen til Maplibre og legg til flere funksjoner i appen
 
-TODO: Lag options ( Se på orignalt repo )
-Her er en tutorial:
-https://maplibre-react-components.pentatrion.com/tutorial
+Gjerne ta utgangspunkt i [Maplibre sin torturial](https://maplibre-react-components.pentatrion.com/tutorial) for å legge til flere funksjoner i appen.
+*ℹ️ Husk at vi bruker typeScript og ikke javascript, så du må kanskje gjøre noen små endringer på koden i torturialen for at det skal funke. Spør gjerne om hjelp!*
+
+
