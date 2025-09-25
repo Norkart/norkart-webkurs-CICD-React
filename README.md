@@ -156,8 +156,22 @@ Nå står du fritt til å gjøre noe det du vil med appen, mulige utfordringer:
 Gjerne ta utgangspunkt i [Maplibre sin torturial](https://maplibre-react-components.pentatrion.com/tutorial) for å legge til flere funksjoner i appen.
 *ℹ️ Husk at vi bruker typeScript og ikke javascript, så du må kanskje gjøre noen små endringer på koden i torturialen for at det skal funke. Spør gjerne om hjelp!*
 
-
 ### Option 2: Legg til tegneverktøy i kartet
 
 Legg til komponenten DrawComponent som en child av MapLibreMap i MapLibreMap.tsx.
 Har tatt utganspunkt i [dette Maplibre eksempelet](https://maplibre.org/maplibre-gl-js/docs/examples/draw-geometries-with-terra-draw/) for å lage denne React komponenten.
+
+## OPTION 3: Fly Til Adresse - ⚠️ TODO, fiks js-mapbox komponentene til å bruke ts-maplibre
+
+I denne oppgaven skal du lage støtte for å kunne søke opp en vilkårlig adresse i Norge og deretter flytte kartvisningen til denne adressen. Til denne oppgaven har dere fått ett verktøy komponenten AdresseBoks benytter seg av en søkemotor som tar inn en adresse og gir geografiske koordinater (Latitude/Longitude) tilbake. Det anbefales å importere denne komponenten og prøve den litt for å forstå hvordan oppgaven kan løses. \*Hint komponenten LocationsMenu kan også gi inspirasjon.
+
+## OPTION 4: Gjør Noe Annet Kult
+
+Her kan man gjøre noe helt annet eller noe som bygger på oppgavene over. Dette er gjerne oppgave man starter på dersom man er godt kjent med React eller er blitt ferdig med en av de andre oppgavene over. Forslag kan være å bygge på en av de tidligere oppgavene man har fullført, prøve å kombinere noen oppgaver eller finne på noe helt annet.
+
+Tips til andre ting du kan gjøre med kartet:
+
+- Sjekk ut maplibre gl sine eksempler: http://maplibre.org/maplibre-gl-js/docs/examples/
+- Visualisere historiske Oslo bysykkel data: https://oslobysykkel.no/en/open-data/historical
+- Lag et Koropletkart av Norgesbefolkning. En Json fil er lagt ved (se sample_data folderen) som viser norges befolkning delt opp i 5x5km ruter.
+- Visualiser din egen data. Du kan lage geojson filer her: https://geojson.io/#map=2/20.0/0.0
