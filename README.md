@@ -161,11 +161,7 @@ Gjerne ta utgangspunkt i [Maplibre sin torturial](https://maplibre-react-compone
 Legg til komponenten DrawComponent som en child av MapLibreMap i MapLibreMap.tsx.
 Har tatt utganspunkt i [dette Maplibre eksempelet](https://maplibre.org/maplibre-gl-js/docs/examples/draw-geometries-with-terra-draw/) for å lage denne React komponenten.
 
-## OPTION 3: Fly Til Adresse - ⚠️ TODO, fiks js-mapbox komponentene til å bruke ts-maplibre
-
-I denne oppgaven skal du lage støtte for å kunne søke opp en vilkårlig adresse i Norge og deretter flytte kartvisningen til denne adressen. Til denne oppgaven har dere fått ett verktøy komponenten AdresseBoks benytter seg av en søkemotor som tar inn en adresse og gir geografiske koordinater (Latitude/Longitude) tilbake. Det anbefales å importere denne komponenten og prøve den litt for å forstå hvordan oppgaven kan løses. \*Hint komponenten LocationsMenu kan også gi inspirasjon.
-
-## OPTION 4: Gjør Noe Annet Kult
+## OPTION 3: Gjør Noe Annet Kult
 
 Her kan man gjøre noe helt annet eller noe som bygger på oppgavene over. Dette er gjerne oppgave man starter på dersom man er godt kjent med React eller er blitt ferdig med en av de andre oppgavene over. Forslag kan være å bygge på en av de tidligere oppgavene man har fullført, prøve å kombinere noen oppgaver eller finne på noe helt annet.
 
