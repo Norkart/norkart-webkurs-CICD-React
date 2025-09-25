@@ -154,7 +154,7 @@ Nå står du fritt til å gjøre noe det du vil med appen, mulige utfordringer:
 ### Option 1: Følg tutorialen til Maplibre og legg til flere funksjoner i appen
 
 Gjerne ta utgangspunkt i [Maplibre sin torturial](https://maplibre-react-components.pentatrion.com/tutorial) for å legge til flere funksjoner i appen.
-*ℹ️ Husk at vi bruker typeScript og ikke javascript, så du må kanskje gjøre noen små endringer på koden i torturialen for at det skal funke. Spør gjerne om hjelp!*
+*ℹ️ Husk at vi bruker typeScript og ikke javascript, så du må kanskje gjøre noen små endringer på koden i tutorialen for at det skal funke. Spør gjerne om hjelp!*
 
 ### Option 2: Legg til tegneverktøy i kartet
 
