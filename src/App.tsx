@@ -1,6 +1,6 @@
 
-import Header from './components/Headert';
-import MapLibreMap from './components/MapLibreMap';
+import Header from './components/Header';
+import {MapLibreMap} from './components/MapLibreMap';
 
 const styles = {
   overflow: 'hidden',
