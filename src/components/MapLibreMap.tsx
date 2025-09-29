@@ -1,10 +1,10 @@
 import type { MapLayerMouseEvent } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { RMap } from "maplibre-react-components";
-import "./MapLibreMap.css";
 import { getHoydeFromPunkt } from "../api/getHoydeFromPunkt";
 import { useEffect, useState } from "react";
 import { Overlay } from "./Overlay";
+import DrawComponent from "./DrawComponent";
 
 const TRONDHEIM_COORDS: [number, number] = [10.40565401, 63.4156575];
 
@@ -35,6 +35,7 @@ export const MapLibreMap = () => {
         <h2>Dette er et overlay</h2>
         <p>Legg til funksjonalitet knyttet til kartet.</p>
       </Overlay>
+      <DrawComponent />
     </RMap>
   );
 };
