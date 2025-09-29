@@ -1,8 +1,6 @@
 export const getBygningAtPunkt = async (x: number, y: number) => {
     const apiKey = import.meta.env.VITE_API_KEY;
-    const query = `https://bygning.api.norkart.no/bygninger/byposition?x=${x}&y=${y}&MaxRadius=1`;
-
-    return undefined;
+    const query = `https://bygning.api.norkart.no/bygninger/byposition?x=${x}&y=${y}&MaxRadius=1&GeometryTextFormat=GeoJson&IncludeFkbData=true`;
 
     // TODO: Fullfør/endre koden for hente og returnere bygningsdata på et punkt
 
