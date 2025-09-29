@@ -136,7 +136,7 @@ Klikk så på 'Generate token' og kopier verdien.
 
 2. Lag en secret som kan brukes av Github Actions
 
-For å la Github Actions hente tokenet vi nettop lagde, trenger vi en secret. Trykk på 'New Secret'. Gi den navn: 'ACTIONS_DEPLOY_ACCESS_TOKEN', og verdi: tokenet du kopierte fra forrige steg.
+For å la Github Actions hente tokenet vi nettop lagde, trenger vi en secret. Kopier token'et du nettopp genererte og gå til `Settings > Secrets and variables > Actions`. Trykk på `New Repository Secret` og gi den navnet: `ACTIONS_DEPLOY_ACCESS_TOKEN`.
 <br >
 <br >
 <br >
