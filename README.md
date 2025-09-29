@@ -202,7 +202,7 @@ I tillegg innholder responsen den beregnede solmengden (i kWh/m^2) som treffer t
 
 #### Ekstraoppgave:
 
-Dersom du har ...
+Dersom du har implementert [getBygningAtPunkt](/src/api/getBygningAtPunkt.ts) (se [oppgave 3](#oppgave-3-vis-bygninger-i-kartet)), kan du benytte bygningsnummeret som returneres fra API-et til å hente solmengde-data for alle takene på en valgt bygning. For å gjøre dette må du implementere [getTakflateDataForBygning](/src/api/getTakflateDataForBygning.ts). Responsen fra dette API-kallet kan brukes både til å vise alle tak i kartet og til å vise total solmengde på alle tak ved forskjellige tider av året.
 
 
 ## STEG 2: Få nettsiden til å kjøre på github-pages.
