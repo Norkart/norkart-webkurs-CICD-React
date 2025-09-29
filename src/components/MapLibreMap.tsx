@@ -20,7 +20,7 @@ export const MapLibreMap = () => {
     }
 
     return (
-        <div style={{ position: 'relative', height: '1000px', width: '100%' }}>
+        <div style={{ position: 'relative', height: '80vh', width: '100%' }}>
             <RMap
                 minZoom={6}
                 initialCenter={trondheim}
