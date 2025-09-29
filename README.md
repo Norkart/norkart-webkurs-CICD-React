@@ -105,7 +105,7 @@ For å oppdattere nettsiden må vi manuelt kjøre **npm run deploy** etter å ha
 
 1. Generer access token for å deploye nettsiden gjennom Github Actions
 
-For å gi Github Actions tilgang til å lese og deploye repoet vårt, trenger vi ett access token. Gå til https://github.com/settings/tokens og trykk 'Generate new token', velg 'Classic'
+For å gi Github Actions tilgang til å lese og deploye repoet vårt, trenger vi ett access token. Gå til https://github.com/settings/tokens og trykk 'Generate new token', velg 'Fine grained tokens'
 <br>
 <br>
 
@@ -114,9 +114,21 @@ For å gi Github Actions tilgang til å lese og deploye repoet vårt, trenger vi
 <br>
 <br>
 
-Gi tokenet et navn, f.eks 'deploy-access', og huk av på 'repo'. Klikk så på 'Generate token' og kopier verdien.
+Gi tokenet et navn, f.eks 'deploy-access'.
+<img src="public/Images/new_token.png" alt="secret" width="600"/>
 
-<img src="public/Images/github-example-token.png" alt="secret" width="600"/>
+Velg 'Repository access', 'Only select repositories' og velg repoet ditt.
+Under 'Permissions', velg følgende:
+- Actions: Read and write
+- Contents: Read and write
+- Pages: Read and write
+- Metadata: Read only
+
+<img src="public/Images/new_token_settings.png" alt="secret" width="600"/>
+
+
+Klikk så på 'Generate token' og kopier verdien.
+
 
 <br>
 <br>
