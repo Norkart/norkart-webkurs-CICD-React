@@ -1,0 +1,11 @@
+.maplibregl-children {
+  height: calc(100dvh - var(--header-height) - 2 * 20px) !important;
+  margin: 20px;
+  position: relative;
+  pointer-events: none;
+  box-sizing: border-box;
+
+  & * {
+    pointer-events: all;
+  }
+}
