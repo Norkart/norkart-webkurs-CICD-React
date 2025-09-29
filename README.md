@@ -24,6 +24,7 @@ Før dere starter må dere ha noe programvare installert:
 3. **Node.js med npm** https://nodejs.org/en/download
 
 Sjekk at du har fått installert node med npm!
+
 ```
    node --version
 ```
@@ -95,7 +96,7 @@ Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kj�
 
 ![Github action pages-build-deployment](public/Images/action-pages-build-deployment.png)
 
-6. Når github action er ferdig - sjekk om nettsiden din kjører på: `https://{{YOUR_GITHUB_USERNAME}}.github.io/norkart-webkurs-CICD-React/`
+6. Når github action er ferdig - sjekk om nettsiden din kjører på: `https://{{YOUR_GITHUB_USERNAME}}.github.io/norkart-webkurs-CICD-React`
 
 Hurra! nettsiden din er live :D
 
@@ -105,7 +106,7 @@ For å oppdattere nettsiden må vi manuelt kjøre **npm run deploy** etter å ha
 
 1. Generer access token for å deploye nettsiden gjennom Github Actions
 
-For å gi Github Actions tilgang til å lese og deploye repoet vårt, trenger vi ett access token. Gå til https://github.com/settings/tokens og trykk 'Generate new token', velg 'Fine grained tokens'
+For å gi Github Actions tilgang til å lese og deploye repoet vårt, trenger vi ett access token. Gå til https://github.com/settings/personal-access-tokens og trykk 'Generate new token', velg 'Fine grained tokens'
 <br>
 <br>
 
@@ -119,6 +120,7 @@ Gi tokenet et navn, f.eks 'deploy-access'.
 
 Velg 'Repository access', 'Only select repositories' og velg repoet ditt.
 Under 'Permissions', velg følgende:
+
 - Actions: Read and write
 - Contents: Read and write
 - Pages: Read and write
@@ -126,9 +128,7 @@ Under 'Permissions', velg følgende:
 
 <img src="public/Images/new_token_settings.png" alt="secret" width="600"/>
 
-
 Klikk så på 'Generate token' og kopier verdien.
-
 
 <br>
 <br>
@@ -149,8 +149,6 @@ For å la Github Actions hente tokenet vi nettop lagde, trenger vi en secret. Tr
 
 ## STEG 4: Utvikle en super cool react-app med continuous deployment!
 
-
-
 1. Gjør endringer i koden (start for eksempel med å oppdatere kartets zoom nivå, start koordinater eller bakgrunnskart).
 2. Push oppdateringene dine til git og deploy endringene
 
@@ -166,7 +164,7 @@ Nå står du fritt til å gjøre noe det du vil med appen, mulige utfordringer:
 ### Option 1: Følg tutorialen til Maplibre og legg til flere funksjoner i appen
 
 Gjerne ta utgangspunkt i [Maplibre sin torturial](https://maplibre-react-components.pentatrion.com/tutorial) for å legge til flere funksjoner i appen.
-*ℹ️ Husk at vi bruker typeScript og ikke javascript, så du må kanskje gjøre noen små endringer på koden i tutorialen for at det skal funke. Spør gjerne om hjelp!*
+_ℹ️ Husk at vi bruker typeScript og ikke javascript, så du må kanskje gjøre noen små endringer på koden i tutorialen for at det skal funke. Spør gjerne om hjelp!_
 
 ### Option 2: Legg til tegneverktøy i kartet
 
