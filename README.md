@@ -1,9 +1,13 @@
 # Velkommen til workshop med Norkart!
 
-Vi gir dere en enkel boilerplate på en react-applikasjon med maplibre kart og forklarer hvordan denne kan deployes til github pages. Videre kan dere:
+Vi gir dere en enkel fremgangsmåte på å sette opp en React-applikasjon med et Maplibre-kart. Deretter kan dere hente data fra Api-kall. Tilslutt rekker dere kanskje å deploye applikasjonen til GitHub pages. 
 
-- sette opp automatisk utrulling ved bruk av github actions.
-- utvikle mer funksjonalitet i appen.
+Videre kan dere:
+
+- Sette opp automatisk utrulling ved bruk av GitHub actions
+- Utvikle mer funksjonalitet i appen
+
+Still spørsmål dersom noe var uklart😆
 
 Lykke til!
 
@@ -11,7 +15,8 @@ Lykke til!
 
 ## STEG 0: Forutsetninger
 
-Før dere starter må dere ha noe programvare installert:
+Før dere starter må dere ha noe programvare installert (installer kun det dere ikke har fra før):
+
 
 1. **Git**. Følg instruksjonene som gjelder for ditt OS her: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git. Sjekk at git er installert:
 
@@ -38,22 +43,19 @@ Sjekk at du har fått installert node med npm!
 
 ## STEG 1: Fork, clone og kjør prosjektet
 
-1. For å få din egen versjon av prosjektet under egen github-bruker fork'er du dette prosjektet. Dette gjøres ved å trykke `fork` oppe i høyre hjørnet.
+1. For å få din egen versjon av prosjektet under egen GitHub-bruker fork'er du dette prosjektet. Dette gjøres ved å trykke `fork` oppe i høyre hjørnet.
    Behold default innstillinger.
 
-2. I terminalen. Finn fram til fillokasjonen hvor dere vil lagre prosjektet og klon repoet (deres egen versjon av prosjektet som dere nettop forket):
+2. I terminalen. Finn fram til fillokasjonen hvor dere vil lagre prosjektet og klon repoet (deres egen versjon av prosjektet som dere nettopp forket):
 
 ```
-   git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/norkart-webkurs-CICD-React.git
+   git clone https://github.com/<YOUR_GITHUB_USERNAME>/norkart-webkurs-CICD-React.git
 ```
 
-3. Gå inn i mappen du nettop klonet:
+3. Åpne VSCode og åpne prosjektet du nettopp clonet.
 
-```
- cd norkart-webkurs-CICD-React/
-```
 
-4. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `maplibre-gl` biblioteket til å vise kart på nettsiden. Dette vil i tillegg installere `gh-pages` som brukes til å deploye nettsiden.
+4. Åpne ny terminal. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `maplibre-gl` biblioteket til å vise kart på nettsiden. Dette vil i tillegg installere `gh-pages` som brukes til å deploye nettsiden.
 
 ```
    npm install
@@ -124,7 +126,7 @@ Gi tokenet et navn, f.eks 'deploy-access', og huk av på 'repo'. Klikk så på '
 
 2. Lag en secret som kan brukes av Github Actions
 
-For å la Github Actions hente tokenet vi nettop lagde, trenger vi en secret. Trykk på 'New Secret'. Gi den navn: 'ACTIONS_DEPLOY_ACCESS_TOKEN', og verdi: tokenet du kopierte fra forrige steg.
+For å la Github Actions hente tokenet vi nettopp lagde, trenger vi en secret. Trykk på 'New Secret'. Gi den navn: 'ACTIONS_DEPLOY_ACCESS_TOKEN', og verdi: tokenet du kopierte fra forrige steg.
 <br >
 <br >
 <br >
