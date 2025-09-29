@@ -6,7 +6,7 @@ export const getBygningAtPunkt = async (x: number, y: number) => {
 
     // TODO: Fullfør/endre koden for hente og returnere bygningsdata på et punkt
 
-    // Hint: Du kan se på getAdressweDeomSearchText og getHoydeFromPunkt for å få en idé om hvordan
+    // Hint: Du kan se på getAdresseFromSearchText og getHoydeFromPunkt for å få en idé om hvordan
     // dette kan gjøres.
 
     // Merk at dette er en GET request, og ikke en POST request!
