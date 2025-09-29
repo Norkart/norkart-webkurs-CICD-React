@@ -29,6 +29,7 @@ Før dere starter må dere ha noe programvare installert (installer kun det dere
 3. **Node.js med npm** https://nodejs.org/en/download
 
 Sjekk at du har fått installert node med npm!
+
 ```
    node --version
 ```
@@ -124,6 +125,7 @@ Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kj�
 
 ![Github action pages-build-deployment](public/Images/action-pages-build-deployment.png)
 
+
 6. Når GitHub Action er ferdig - sjekk om nettsiden din kjører på: `https://<YOUR_GITHUB_USERNAME>.github.io/norkart-webkurs-CICD-React/`
 
 Hurra! nettsiden din er live :D
@@ -136,22 +138,16 @@ I stedet for å manuelt kjøre `npm run deploy`, kan vi bruke GitHub Actions til
 
 1. Generer access token for å deploye nettsiden gjennom GitHub Actions
 
-
 For å gi Github Actions tilgang til å lese og deploye repoet vårt, trenger vi ett access token. Gå til https://github.com/settings/tokens og trykk 'Generate new token', velg 'Fine grained tokens'
 
-<br>
-<br>
-
 <img src="public/Images/github-deploy-token.png" alt="generate github token" width="600"/>
-
-<br>
-<br>
 
 Gi tokenet et navn, f.eks 'deploy-access'.
 <img src="public/Images/new_token.png" alt="secret" width="600"/>
 
-Velg 'Repository access', 'Only select repositories' og velg repoet ditt.
+Under 'Repository access', huk av for 'Only select repositories' og velg repoet ditt.
 Under 'Permissions', velg følgende:
+
 - Actions: Read and write
 - Contents: Read and write
 - Pages: Read and write
@@ -159,32 +155,19 @@ Under 'Permissions', velg følgende:
 
 <img src="public/Images/new_token_settings.png" alt="secret" width="600"/>
 
-
 Klikk så på 'Generate token' og kopier verdien.
 
+2. Lag en secret som kan brukes av Github Actions
 
-<br>
-<br>
-<br>
-
-2. Lag en secret som kan brukes av GitHub Actions
-
-For å la GitHub Actions hente tokenet vi nettopp lagde, trenger vi en secret. Trykk på 'New Secret'. Gi den navn: 'ACTIONS_DEPLOY_ACCESS_TOKEN', og verdi: tokenet du kopierte fra forrige steg.
-<br >
-<br >
-<br >
-<img src="public/Images/github-example-github-actions.png" alt="secret" width="600"/>
-<br>
-<br>
-<br>
+For å la Github Actions hente tokenet vi nettop lagde, trenger vi en secret. Kopier token'et du nettopp genererte og gå til `Settings > Secrets and variables > Actions`. Trykk på `New Repository Secret` og gi den navnet: `ACTIONS_DEPLOY_ACCESS_TOKEN`.
+<img src="public/Images/github-create-secret.png" alt="secret" width="600"/>
 
 3. Gjør endring i appen og push til main branchen. Dette skal trigge en GitHub Action (se '.github\workflows\main.yml' ) som automatisk kjører `npm run deploy`. Når denne actionen er ferdig, skal dette trigge pages-build-deployment workflowen og endringene skal automatisk rulles ut til nettsiden din.
 
 ## STEG 5: Utvikle en super cool react-app med continuous deployment!
 
-
-
 1. Velg en av de andre oppgavene under **STEG 2**
+
 2. Push oppdateringene dine til git og deploy endringene
 
 ```
@@ -195,5 +178,3 @@ git push origin main
 
 Endringene du gjør vil automatisk oppdateres på nettsiden din! Happy coding :D
 Nå står du fritt til å gjøre noe det du vil med appen, mulige utfordringer:
-
-
