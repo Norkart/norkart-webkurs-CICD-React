@@ -1,20 +1,19 @@
-
-import { useTerraDrawControl } from '../hooks/useTerraDrawControl';
+import { useTerraDrawControl } from "../hooks/useTerraDrawControl";
 
 function DrawComponent() {
-  useTerraDrawControl( {
+  useTerraDrawControl({
     modes: [
-      'point',           
-      'linestring',
-      'polygon',
-      'rectangle',
-      'circle',
-      'select',
-      'delete-selection',
-      'delete',
+      "point",
+      "linestring",
+      "polygon",
+      "rectangle",
+      "circle",
+      "select",
+      "delete-selection",
+      "delete",
     ],
     open: true,
-    position: 'top-left'
+    position: "bottom-left",
   });
 
   // No UI needed - the hook adds controls directly to the map
@@ -22,5 +21,3 @@ function DrawComponent() {
 }
 
 export default DrawComponent;
-
-  

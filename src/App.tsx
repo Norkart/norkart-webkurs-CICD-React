@@ -1,18 +1,14 @@
-
-import Header from './components/Header';
-import {MapLibreMap} from './components/MapLibreMap';
-
-const styles = {
-  overflow: 'hidden',
-};
+import Header from "./components/Header";
+import { MapLibreMap } from "./components/MapLibreMap";
+import "./index.css";
 
 function App() {
   return (
-    <div style={styles}>
+    <>
       <Header />
       <MapLibreMap />
-    </div>
+    </>
   );
 }
 
-export default App
+export default App;
