@@ -1,6 +1,5 @@
 import { Autocomplete, CircularProgress, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
-import { getAdresserFromSearchText } from "../api/getAdresserFromSearchText";
 
 export type Address = {
     PayLoad: {
@@ -16,10 +15,10 @@ export const SearchBar = ({setAddress}: {setAddress: React.Dispatch<React.SetSta
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState<Address[]>([]);
     const [loading, setLoading] = useState(false);
-    const [searchTerm, setSearchTerm] = useState("");
+    const [searchText, setSearchText] = useState("");
 
     useEffect(() => {
-        if (!searchTerm) {
+        if (!searchText) {
             setOptions([]);
             setOpen(false);
             return;
@@ -27,8 +26,8 @@ export const SearchBar = ({setAddress}: {setAddress: React.Dispatch<React.SetSta
 
         const identifier = setTimeout(async () => {
             setLoading(true);
-            const adresser = await getAdresserFromSearchText(searchTerm);
-            setOptions([...adresser]);
+            const adresser: Address[] = []; // Kanskje getAdresserFromSearchText kan brukes her..??
+            setOptions(adresser);
             setLoading(false);
             setOpen(true);
         }, 500);
@@ -37,7 +36,7 @@ export const SearchBar = ({setAddress}: {setAddress: React.Dispatch<React.SetSta
         return () => {
             clearTimeout(identifier);
         };
-    }, [searchTerm]);
+    }, [searchText]);
 
     const handleClose = () => {
         setOpen(false);
@@ -52,9 +51,9 @@ export const SearchBar = ({setAddress}: {setAddress: React.Dispatch<React.SetSta
         getOptionLabel={(option) => option.PayLoad.Text}
         options={options}
         loading={loading}
-        inputValue={searchTerm}
+        inputValue={searchText}
         onInputChange={(_, newInputValue) => {
-                setSearchTerm(newInputValue);
+                setSearchText(newInputValue);
         }}
         onChange={(_, selectedOption) => {
             if (selectedOption) {
