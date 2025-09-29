@@ -2,7 +2,7 @@
   "name": "react-bedpress",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/oskarhlm/norkart-webkurs-CICD-React",
+  "homepage": "https://norkart.github.io/norkart-webkurs-CICD-React",
   "type": "module",
   "scripts": {
     "dev": "vite",
