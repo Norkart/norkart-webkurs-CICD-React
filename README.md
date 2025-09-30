@@ -105,7 +105,7 @@ Funksjonen [getHoydeFromPunkt.ts](/src/api/getHoydeFromPunkt.ts) kan benyttes ti
 
 Her kan du for eksempel benytte deg av MapLibre-komponenten [RPopup](https://maplibre-react-components.pentatrion.com/components/rpopup), eller lage en egen komponent ved siden av eller under kartet som viser latitude, longitude og høyde for valgt punkt. Da kan man for eksempel bruke MUI-komponenten [Card](https://mui.com/material-ui/react-card/) eller legge inn detaljene direkte inn i Overlay-komponenten.
 
-Hint: Latitude og longitude av punktet man klikker på blir lagret i statene pointLatitude og pointLongitude. Disse må brukes dersom du velger å prøve [RPopup](https://maplibre-react-components.pentatrion.com/components/rpopup).
+Hint: Latitude og longitude av punktet man klikker på blir lagret i `clickPoint`-state'en. Disse må brukes dersom du velger å prøve [RPopup](https://maplibre-react-components.pentatrion.com/components/rpopup).
 
 ---
 
@@ -114,7 +114,7 @@ Hint: Latitude og longitude av punktet man klikker på blir lagret i statene poi
 [SearchBar.tsx](/src/components/SearchBar.tsx) eksporterer en komponent som kan brukes til å søke etter adresser. For å vise den i applikasjonen må den importeres og plasseres i en komponent som faktisk rendres, som [MapLibreMap](/src/components/MapLibreMap.tsx). I denne filen, importer SearchBar ved å plassere følgende øverst i filen:
 
 ```
-import { SearchBar, type Address } from './components/SearchBar';
+import { SearchBar, type Address } from './SearchBar';
 ```
 
 Videre må vi lage en state hvor en valgt adresse kan lagres og en state-setter-funksjon som kan oppdatere den. Dette oppnås ved å legge til følgende i MapLibreMap-komponenten:
@@ -159,7 +159,13 @@ Når du har fått til dette kan du gå videre til å få kartet til å "fly til"
       minZoom={6}
       ...
 >
-   <MapFlyTo lat={address?.PayLoad.Posisjon.Y} lng={address?.PayLoad.Posisjon.X}/>
+   {address && (
+      <MapFlyTo
+         lngLat={
+         new LngLat(address.PayLoad.Posisjon.X, address.PayLoad.Posisjon.Y)
+         }
+      />
+   )}
 </RMap>
 ```
 
