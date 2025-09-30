@@ -6,7 +6,7 @@ name: build and Deploy
 on:
   push:
     branches:
-      - "main"
+      - 'main'
 
 env:
   CI: false
@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          cache: 'npm'
 
       - run: npm ci
 
@@ -38,7 +38,7 @@ jobs:
           git remote set-url origin https://${github_token}@github.com/${repository}
           npm run deploy
         env:
-          user_name: "ettellerannet"
-          user_email: "ettellerannet@epost.no"
+          user_name: 'ettellerannet'
+          user_email: 'ettellerannet@epost.no'
           github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
           repository: ${{ github.repository }}
