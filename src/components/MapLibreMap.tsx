@@ -1,33 +1,28 @@
-import type { MapLayerMouseEvent } from 'maplibre-gl';
+import { LngLat, type MapLayerMouseEvent } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { RMap, useMap } from 'maplibre-react-components';
 import { getHoydeFromPunkt } from '../api/getHoydeFromPunkt';
 import { useEffect, useState } from 'react';
 import { Overlay } from './Overlay';
 import DrawComponent from './DrawComponent';
+import { SearchBar, type Address } from './SearchBar';
 
 const TRONDHEIM_COORDS: [number, number] = [10.40565401, 63.4156575];
 
 export const MapLibreMap = () => {
-  const [pointHoyde, setPointHoydeAtPunkt] = useState<undefined | number>(
+  const [pointHoyde, setPointHoydeAtPunkt] = useState<number | undefined>(
     undefined
   );
-  const [pointLatitude, setPointLatitude] = useState<undefined | number>(
-    undefined
-  );
-  const [pointLongitude, setPointLongitude] = useState<undefined | number>(
-    undefined
-  );
+  const [clickPoint, setClickPoint] = useState<LngLat | undefined>(undefined);
 
   useEffect(() => {
-    console.log(pointHoyde);
-  }, [pointHoyde]);
+    console.log(pointHoyde, clickPoint);
+  }, [clickPoint, pointHoyde]);
 
   const onMapClick = async (e: MapLayerMouseEvent) => {
     const hoyder = await getHoydeFromPunkt(e.lngLat.lng, e.lngLat.lat);
     setPointHoydeAtPunkt(hoyder[0].Z);
-    setPointLatitude(hoyder[0].Y);
-    setPointLongitude(hoyder[0].X);
+    setClickPoint(new LngLat(e.lngLat.lng, e.lngLat.lat));
   };
 
   return (
@@ -50,19 +45,12 @@ export const MapLibreMap = () => {
   );
 };
 
-const MapFlyTo = ({
-  lat,
-  lng,
-}: {
-  lat: number | undefined;
-  lng: number | undefined;
-}) => {
+function MapFlyTo({ lngLat }: { lngLat: LngLat }) {
   const map = useMap();
 
   useEffect(() => {
-    if (!lat || !lng) return;
-    map.flyTo({ center: [lng, lat], zoom: 20, speed: 10 });
-  }, [lat, lng, map]);
+    map.flyTo({ center: [lngLat.lng, lngLat.lat], zoom: 20, speed: 10 });
+  }, [lngLat, map]);
 
   return null;
-};
+}
