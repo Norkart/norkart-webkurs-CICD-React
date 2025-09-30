@@ -13,6 +13,7 @@ export const MapLibreMap = () => {
   const [pointHoyde, setPointHoydeAtPunkt] = useState<number | undefined>(
     undefined
   );
+  const [address, setAddress] = useState<Address | null>(null); // <--- Legg til dette!
   const [clickPoint, setClickPoint] = useState<LngLat | undefined>(undefined);
 
   useEffect(() => {
@@ -40,7 +41,6 @@ export const MapLibreMap = () => {
         <RPopup
           longitude={clickPoint.lng}
           latitude={clickPoint.lat}
-          onMapMove={() => setClickPoint(undefined)}
           onMapClick={() => setClickPoint(undefined)}
         >
           Hello!
@@ -53,6 +53,7 @@ export const MapLibreMap = () => {
         </RPopup>
       )}
       <Overlay>
+        <SearchBar setAddress={setAddress} />
         <h2>Klikk i kartet for flere stats 🤓</h2>
         <p>
           {clickPoint && `Koordinater:  ${clickPoint.lng}, ${clickPoint.lat}`}
@@ -60,6 +61,13 @@ export const MapLibreMap = () => {
         <p>{clickPoint && `Høyde: ${pointHoyde} m`}</p>
       </Overlay>
       <DrawComponent />
+      {address && (
+        <MapFlyTo
+          lngLat={
+            new LngLat(address.PayLoad.Posisjon.X, address.PayLoad.Posisjon.Y)
+          }
+        />
+      )}
     </RMap>
   );
 };
