@@ -1,6 +1,6 @@
 import type { MapLayerMouseEvent } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { RMap } from "maplibre-react-components";
+import { RMap, useMap } from "maplibre-react-components";
 import { getHoydeFromPunkt } from "../api/getHoydeFromPunkt";
 import { useEffect, useState } from "react";
 import { Overlay } from "./Overlay";
@@ -39,3 +39,15 @@ export const MapLibreMap = () => {
     </RMap>
   );
 };
+
+const MapFlyTo = ({lat, lng}: {lat: number |undefined, lng: number | undefined}) => {
+        const map = useMap();
+
+        useEffect(() => {
+            if (!lat || !lng) return 
+            map.flyTo({center: [lng, lat], zoom: 20, speed: 10})
+        }, [lat, lng, map]);
+
+        return null;
+
+}
