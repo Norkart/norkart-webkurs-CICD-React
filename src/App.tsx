@@ -1,6 +1,6 @@
-import Header from "./components/Header";
-import { MapLibreMap } from "./components/MapLibreMap";
-import "./index.css";
+import Header from './components/Header';
+import { MapLibreMap } from './components/MapLibreMap';
+import './index.css';
 
 function App() {
   return (
