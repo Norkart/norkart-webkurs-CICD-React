@@ -1,6 +1,6 @@
 import { LngLat, type MapLayerMouseEvent } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { RMap, useMap } from 'maplibre-react-components';
+import { RMap, RPopup, useMap } from 'maplibre-react-components';
 import { getHoydeFromPunkt } from '../api/getHoydeFromPunkt';
 import { useEffect, useState } from 'react';
 import { Overlay } from './Overlay';
@@ -36,9 +36,28 @@ export const MapLibreMap = () => {
       }}
       onClick={onMapClick}
     >
+      {clickPoint && (
+        <RPopup
+          longitude={clickPoint.lng}
+          latitude={clickPoint.lat}
+          onMapMove={() => setClickPoint(undefined)}
+          onMapClick={() => setClickPoint(undefined)}
+        >
+          Hello!
+          <button
+            className="maplibregl-popup-close-button"
+            onClick={() => setClickPoint(undefined)}
+          >
+            ×
+          </button>
+        </RPopup>
+      )}
       <Overlay>
-        <h2>Dette er et overlay</h2>
-        <p>Legg til funksjonalitet knyttet til kartet.</p>
+        <h2>Klikk i kartet for flere stats 🤓</h2>
+        <p>
+          {clickPoint && `Koordinater:  ${clickPoint.lng}, ${clickPoint.lat}`}
+        </p>
+        <p>{clickPoint && `Høyde: ${pointHoyde} m`}</p>
       </Overlay>
       <DrawComponent />
     </RMap>
