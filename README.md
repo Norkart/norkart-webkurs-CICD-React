@@ -43,16 +43,6 @@ Sjekk at du har fått installert node med npm!
 
 4. **En code editor (vs code anbefales)**. https://code.visualstudio.com/download
 
-5. **API-nøkkel**. I rotmappa av repoet, lag en fil ved navn ".env" og legg inn følgende:
-
-```
-VITE_API_KEY=
-```
-
-Bak "=" skal dere legge inn API-nøkkelen dere får tildelt.
-
-**API-nøkkelen skal IKKE legges noe annet sted enn her, og .env skal IKKE lastes opp på GitHub!!**
-
 ---
 
 ## STEG 1: Fork, clone og kjør prosjektet
@@ -75,7 +65,17 @@ Bak "=" skal dere legge inn API-nøkkelen dere får tildelt.
    npm install
 ```
 
-5. Kjør opp prosjektet lokalt:
+5. **API-nøkkel**. I rotmappa av repoet, lag en fil ved navn ".env" og legg inn følgende:
+
+```
+VITE_API_KEY=
+```
+
+Bak "=" skal dere legge inn API-nøkkelen dere får tildelt.
+
+**API-nøkkelen skal IKKE legges noe annet sted enn her, og .env skal IKKE lastes opp på GitHub!!**
+
+6. Kjør opp prosjektet lokalt:
 
 ```
    npm run dev
