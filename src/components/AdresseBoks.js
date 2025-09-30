@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { FritekstSok } from "./FritekstSok";
+import { useState } from 'react';
+import { FritekstSok } from './FritekstSok';
 
 const AdresseBoksStyle = {
-  position: "absolute",
-  background: "white",
+  position: 'absolute',
+  background: 'white',
   padding: 20,
-  zIndex: "2",
+  zIndex: '2',
   top: 60,
   right: 0,
 };

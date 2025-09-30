@@ -1,4 +1,4 @@
-import type { PropsWithChildren, CSSProperties } from "react";
+import type { PropsWithChildren, CSSProperties } from 'react';
 
 export function Overlay({
   children,
@@ -7,12 +7,12 @@ export function Overlay({
   return (
     <div
       style={{
-        position: "relative",
-        backgroundColor: "white",
-        borderRadius: "20px",
-        padding: "20px",
-        width: "fit-content",
-        boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
+        position: 'relative',
+        backgroundColor: 'white',
+        borderRadius: '20px',
+        padding: '20px',
+        width: 'fit-content',
+        boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
         ...style,
       }}
     >

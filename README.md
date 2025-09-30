@@ -1,6 +1,6 @@
 # Velkommen til workshop med Norkart!
 
-Vi gir dere en enkel fremgangsmåte på å sette opp en React-applikasjon med et Maplibre-kart. Deretter skal dere utvide kartfunksjonaliten til applikasjonen. Her kan dere velge mellom tre ulike oppgaver. Tilslutt rekker dere kanskje å deploye applikasjonen til GitHub Pages. 
+Vi gir dere en enkel fremgangsmåte på å sette opp en React-applikasjon med et Maplibre-kart. Deretter skal dere utvide kartfunksjonaliten til applikasjonen. Her kan dere velge mellom tre ulike oppgaver. Tilslutt rekker dere kanskje å deploye applikasjonen til GitHub Pages.
 
 Videre kan dere:
 
@@ -16,7 +16,6 @@ Lykke til!
 ## STEG 0: Forutsetninger
 
 Før dere starter må dere ha noe programvare installert (installer kun det dere ikke har fra før):
-
 
 1. **Git**. Følg instruksjonene som gjelder for ditt OS her: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git. Sjekk at git er installert:
 
@@ -55,7 +54,6 @@ Sjekk at du har fått installert node med npm!
 
 3. Åpne VSCode og åpne prosjektet du nettopp clonet.
 
-
 4. Åpne ny terminal. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `maplibre-gl` biblioteket til å vise kart på nettsiden. Dette vil i tillegg installere `gh-pages` som brukes til å deploye nettsiden.
 
 ```
@@ -73,14 +71,15 @@ Dette bør åpne browseren din på http://localhost:5173/react-bedpress/.
 HURRA! Du kan nå kalle deg for en React-utvikler!
 
 ---
-## STEG 2: Legg til kartfunksjonalitet 
 
-Velg **én** av oppgavene under. Etter at du har gjort en av oppgaven under, kan du gå virdere til å deploye applikasjonen på GitHub Pages. 
+## STEG 2: Legg til kartfunksjonalitet
+
+Velg **én** av oppgavene under. Etter at du har gjort en av oppgaven under, kan du gå virdere til å deploye applikasjonen på GitHub Pages.
 
 ### OPPGAVE 1: Følg tutorialen til Maplibre og legg til flere funksjoner i appen
 
 Gjerne ta utgangspunkt i [Maplibre sin torturial](https://maplibre-react-components.pentatrion.com/tutorial) for å legge til flere funksjoner i appen.
-*ℹ️ Husk at vi bruker typeScript og ikke javascript, så du må kanskje gjøre noen små endringer på koden i tutorialen for at det skal funke. Spør gjerne om hjelp!*
+_ℹ️ Husk at vi bruker typeScript og ikke javascript, så du må kanskje gjøre noen små endringer på koden i tutorialen for at det skal funke. Spør gjerne om hjelp!_
 
 ### OPPGAVE 2: Legg til tegneverktøy i kartet
 
@@ -97,7 +96,6 @@ Tips til andre ting du kan gjøre med kartet:
 - Visualisere historiske Oslo bysykkel data: https://oslobysykkel.no/en/open-data/historical
 - Lag et Koropletkart av Norgesbefolkning. En Json fil er lagt ved (se sample_data folderen) som viser norges befolkning delt opp i 5x5km ruter.
 - Visualiser din egen data. Du kan lage geojson filer her: https://geojson.io/#map=2/20.0/0.0
-
 
 ## STEG 3: Få nettsiden til å kjøre på GitHub Pages.
 
@@ -125,14 +123,13 @@ Denne kommandoen vil lage en branch i repoet ditt som heter gh-pages. Du kan kj�
 
 ![Github action pages-build-deployment](public/Images/action-pages-build-deployment.png)
 
-
 6. Når GitHub Action er ferdig - sjekk om nettsiden din kjører på: `https://<YOUR_GITHUB_USERNAME>.github.io/norkart-webkurs-CICD-React/`
 
 Hurra! nettsiden din er live :D
 
 ## STEG 4: Automatisk deploy med GitHub Actions
 
-For å oppdatere nettsiden må vi manuelt kjøre `npm run deploy` etter å ha endret koden. Heldigvis er dette mulig å automatisere. 
+For å oppdatere nettsiden må vi manuelt kjøre `npm run deploy` etter å ha endret koden. Heldigvis er dette mulig å automatisere.
 
 I stedet for å manuelt kjøre `npm run deploy`, kan vi bruke GitHub Actions til å automatisk deploye alle endringer som pushes til main-branchen. Dette vil spare oss for et manuelt steg.
 

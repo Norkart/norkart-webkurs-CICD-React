@@ -1,23 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 import { MaplibreTerradrawControl } from '@watergis/maplibre-gl-terradraw';
 import '@watergis/maplibre-gl-terradraw/dist/maplibre-gl-terradraw.css';
-import { useMap } from "maplibre-react-components";
+import { useMap } from 'maplibre-react-components';
 
-type TerraDrawMode = 
-  | 'point' 
-  | 'linestring' 
-  | 'polygon' 
-  | 'rectangle' 
-  | 'circle' 
-  | 'select' 
-  | 'delete-selection' 
-  | 'delete' 
-  | 'render' 
-  | 'freehand' 
-  | 'freehand-linestring' 
-  | 'angled-rectangle' 
-  | 'sensor' 
-  | 'sector' 
+type TerraDrawMode =
+  | 'point'
+  | 'linestring'
+  | 'polygon'
+  | 'rectangle'
+  | 'circle'
+  | 'select'
+  | 'delete-selection'
+  | 'delete'
+  | 'render'
+  | 'freehand'
+  | 'freehand-linestring'
+  | 'angled-rectangle'
+  | 'sensor'
+  | 'sector'
   | 'download';
 
 interface TerraDrawOptions {
@@ -35,7 +35,7 @@ export const useTerraDrawControl = (
   const {
     modes = options.modes as TerraDrawMode[],
     open = true,
-    position = 'top-left'
+    position = 'top-left',
   } = options;
 
   useEffect(() => {
@@ -48,7 +48,6 @@ export const useTerraDrawControl = (
       });
       map.addControl(draw, position);
       drawControlRef.current = draw;
-
     } catch (error) {
       console.error('Failed to initialize Terra Draw:', error);
     }
