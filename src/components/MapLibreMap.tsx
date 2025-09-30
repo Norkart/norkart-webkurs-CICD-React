@@ -1,11 +1,19 @@
 import { LngLat, type MapLayerMouseEvent } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { RMap, RPopup, useMap } from 'maplibre-react-components';
+import {
+  RLayer,
+  RMap,
+  RPopup,
+  RSource,
+  useMap,
+} from 'maplibre-react-components';
 import { getHoydeFromPunkt } from '../api/getHoydeFromPunkt';
 import { useEffect, useState } from 'react';
 import { Overlay } from './Overlay';
 import DrawComponent from './DrawComponent';
 import { SearchBar, type Address } from './SearchBar';
+import { getBygningAtPunkt } from '../api/getBygningAtPunkt';
+import type { GeoJSON } from 'geojson';
 
 const TRONDHEIM_COORDS: [number, number] = [10.40565401, 63.4156575];
 
@@ -15,15 +23,35 @@ export const MapLibreMap = () => {
   );
   const [address, setAddress] = useState<Address | null>(null); // <--- Legg til dette!
   const [clickPoint, setClickPoint] = useState<LngLat | undefined>(undefined);
+  const [bygningsOmriss, setBygningsOmriss] = useState<GeoJSON | undefined>(
+    undefined
+  );
 
-  useEffect(() => {
-    console.log(pointHoyde, clickPoint);
-  }, [clickPoint, pointHoyde]);
+  // useEffect(() => {
+  //   console.log(pointHoyde, clickPoint, bygningsOmriss);
+  // }, [clickPoint, pointHoyde, bygningsOmriss]);
 
   const onMapClick = async (e: MapLayerMouseEvent) => {
+    // Oppgave 4 - Vis bygningsomriss
+    const bygningResponse = await getBygningAtPunkt(e.lngLat.lng, e.lngLat.lat);
+    console.log(bygningResponse);
+    if (bygningResponse?.FkbData?.BygningsOmriss) {
+      const geoJsonObject = JSON.parse(bygningResponse.FkbData.BygningsOmriss);
+      // console.log(geoJsonObject);
+      setBygningsOmriss(geoJsonObject);
+    } else {
+      setBygningsOmriss(undefined);
+    }
+
+    // Oppgave 2
     const hoyder = await getHoydeFromPunkt(e.lngLat.lng, e.lngLat.lat);
     setPointHoydeAtPunkt(hoyder[0].Z);
     setClickPoint(new LngLat(e.lngLat.lng, e.lngLat.lat));
+  };
+
+  const polygonStyle = {
+    'fill-outline-color': 'rgba(0,0,0,0.1)',
+    'fill-color': 'rgba(18, 94, 45, 0.41)',
   };
 
   return (
@@ -67,6 +95,17 @@ export const MapLibreMap = () => {
             new LngLat(address.PayLoad.Posisjon.X, address.PayLoad.Posisjon.Y)
           }
         />
+      )}
+      {bygningsOmriss && (
+        <>
+          <RSource id="bygning" type="geojson" data={bygningsOmriss} />
+          <RLayer
+            source="bygning"
+            id="bygning-fill"
+            type="fill"
+            paint={polygonStyle}
+          />
+        </>
       )}
     </RMap>
   );
