@@ -13,13 +13,11 @@ Lykke til!
 - Material UI (MUI) dokumentasjon: https://mui.com/material-ui/getting-started/
 - MapLibre-dokumentasjon: https://maplibre-react-components.pentatrion.com/getting-started
 
-
 ---
 
 ## STEG 0: Forutsetninger
 
 Før dere starter må dere ha noe programvare installert (installer kun det dere ikke har fra før):
-
 
 1. **Git**. Følg instruksjonene som gjelder for ditt OS her: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git. Sjekk at git er installert ved å kjøre følgende i en terminal:
 
@@ -58,7 +56,6 @@ Sjekk at du har fått installert node med npm!
 
 3. Åpne VSCode og åpne prosjektet du nettopp clonet.
 
-
 4. Åpne ny terminal. Installer npm pakkene til prosjektet. De relevante pakkene kan sees i `package.json` filen i prosjektet. Vi bruker for eksempel `maplibre-gl` biblioteket til å vise kart på nettsiden.
 
 ```
@@ -86,9 +83,10 @@ Dette bør åpne nettleseren din på http://localhost:5173/.
 HURRA! Du kan nå kalle deg for en React-utvikler!
 
 ---
+
 ## STEG 2: Legg til funksjonalitet
 
-Nå som du har en enkel kart-applikasjon kan du begynne å utvide den med mer spennende funksjonalitet! 
+Nå som du har en enkel kart-applikasjon kan du begynne å utvide den med mer spennende funksjonalitet!
 
 Under finner du forskjellige oppgaver som kan gjøres i hvilken som helst rekkefølge (med unntak av noen ekstraoppgaver), med litt ulik grad av veildening. Dersom du føler deg komfortabel nok med React og TypeScript kan du også gjøre noe helt annet med de dataene og verktøyene som er tilgjengelig!
 
@@ -97,18 +95,17 @@ Under finner du forskjellige oppgaver som kan gjøres i hvilken som helst rekkef
 ### OPPGAVE 1: Følg tutorialen til Maplibre og legg til mer kartfunksjonalitet i appen
 
 Gjerne ta utgangspunkt i [Maplibre sin torturial](https://maplibre-react-components.pentatrion.com/tutorial) for å legge til flere funksjoner i appen.
-*ℹ️ Husk at vi bruker TypeScript og ikke JavaScript, så du må kanskje gjøre noen små endringer på koden i tutorialen for at det skal funke. Spør gjerne om hjelp!*
+_ℹ️ Husk at vi bruker TypeScript og ikke JavaScript, så du må kanskje gjøre noen små endringer på koden i tutorialen for at det skal funke. Spør gjerne om hjelp!_
 
 ---
 
-
 ### Oppgave 2: Vis høyde i kartet basert på punkt
 
-Funksjonen [getHoydeFromPunkt.ts](/src/api/getHoydeFromPunkt.ts) kan benyttes til å hente høyde for et geografisk punkt, som vist kart-komponenten [MapLibreMap.tsx](/src/components/MapLibreMap.tsx), hvor høyden for et punkt lagres i staten "pointHoyde" og vises konsollen i nettleseren når man klikker i kartet. Din oppgave er å implementere en visning av denne høyden i applikasjonen. 
+Funksjonen [getHoydeFromPunkt.ts](/src/api/getHoydeFromPunkt.ts) kan benyttes til å hente høyde for et geografisk punkt, som vist kart-komponenten [MapLibreMap.tsx](/src/components/MapLibreMap.tsx), hvor høyden for et punkt lagres i staten "pointHoyde" og vises konsollen i nettleseren når man klikker i kartet. Din oppgave er å implementere en visning av denne høyden i applikasjonen.
 
 Her kan du for eksempel benytte deg av MapLibre-komponenten [RPopup](https://maplibre-react-components.pentatrion.com/components/rpopup), eller lage en egen komponent ved siden av eller under kartet som viser latitude, longitude og høyde for valgt punkt. Da kan man for eksempel bruke MUI-komponenten [Card](https://mui.com/material-ui/react-card/) eller legge inn detaljene direkte inn i Overlay-komponenten.
 
-Hint: Latitude og longitude av punktet man klikker på blir lagret i statene pointLatitude og pointLongitude. Disse må brukes dersom du velger å prøve [RPopup](https://maplibre-react-components.pentatrion.com/components/rpopup). 
+Hint: Latitude og longitude av punktet man klikker på blir lagret i statene pointLatitude og pointLongitude. Disse må brukes dersom du velger å prøve [RPopup](https://maplibre-react-components.pentatrion.com/components/rpopup).
 
 ---
 
@@ -205,7 +202,7 @@ const onMapClick = async (e: MapLayerMouseEvent) => {
 ```
 const polygonStyle = {
    "fill-outline-color": "rgba(0,0,0,0.1)",
-   "fill-color":  "rgba(18, 94, 45, 0.41)" 
+   "fill-color":  "rgba(18, 94, 45, 0.41)"
 }
 ```
 
@@ -221,7 +218,7 @@ import { RLayer, RMap, RSource, useMap } from 'maplibre-react-components';
 <RMap
    ...
 >
-      {bygningsOmriss && 
+      {bygningsOmriss &&
          <>
             <RSource id="bygning" type="geojson" data={bygningsOmriss} />
             <RLayer
@@ -239,7 +236,6 @@ import { RLayer, RMap, RSource, useMap } from 'maplibre-react-components';
 
 API-et returnerer også andre data knyttet til en bygning. Kanskje du kan vise disse dataene ved hjelp av en [RPopup](https://maplibre-react-components.pentatrion.com/components/rpopup) eller et [MUI Card](https://mui.com/material-ui/react-card/)?
 
-
 #### Ekstraoppgave:
 
 Dersom du har implementert adressesøk (se [Oppgave 2](#oppgave-2-implementer-søk-etter-adresse)), kan du bruke posisjonen i Adresse-objektet til å hente en bygning på adressen og vise dette i kartet!
@@ -247,7 +243,6 @@ Dersom du har implementert adressesøk (se [Oppgave 2](#oppgave-2-implementer-s�
 #### Ekstraoppgave:
 
 Norkart har også et API-endepunkt for Risiko- og sårbarhetsdata (ROS-data) for bygninger. Implementer funksjonen [getRosDataForBygning](/src/api/getRosDataForBygning.ts) og hent data for en valgt bygning. Vis ROS-data enten i kart eller ved å bruke MUI-komponenter utenfor kartet.
-
 
 ---
 
@@ -263,7 +258,6 @@ I tillegg innholder responsen den beregnede solmengden (i kWh/m^2) som treffer t
 
 Dersom du har implementert [getBygningAtPunkt](/src/api/getBygningAtPunkt.ts) (se [oppgave 3](#oppgave-3-vis-bygninger-i-kartet)), kan du benytte bygningsnummeret som returneres fra API-et til å hente solmengde-data for alle takene på en valgt bygning. For å gjøre dette må du implementere [getTakflateDataForBygning](/src/api/getTakflateDataForBygning.ts). Responsen fra dette API-kallet kan brukes både til å vise alle tak i kartet og til å vise total solmengde på alle tak ved forskjellige tider av året.
 
-
 ### OPPGAVE 6: Gjør noe med andre, åpne geografiske data
 
 Her står du fritt til å bruke andre åpne geografiske data til å utvide appen. Eksempel er:
@@ -272,4 +266,3 @@ Her står du fritt til å bruke andre åpne geografiske data til å utvide appen
 - Visualisere historiske Oslo bysykkel data: https://oslobysykkel.no/en/open-data/historical
 - Lag et Koropletkart av Norgesbefolkning. En Json fil er lagt ved (se [befolkning_5km.json](/src/sample_data/befolkning_5km.json)) som viser Norges befolkning delt opp i 5x5km ruter.
 - Visualiser din egen data. Du kan lage GeoJson filer her: https://geojson.io/#map=2/20.0/0.0
-

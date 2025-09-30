@@ -4,8 +4,8 @@ export const getRosDataForBygning = async (bygningsNr: number) => {
 
   // TODO: Fullfør/endre koden for hente og returnere risiko- og sårbarhetsdata (ROS-data) for en bygning
 
-    // Hint: Du kan se på getAdresseFromSearchText og getHoydeFromPunkt for å få en idé om hvordan
-    // dette kan gjøres.
+  // Hint: Du kan se på getAdresseFromSearchText og getHoydeFromPunkt for å få en idé om hvordan
+  // dette kan gjøres.
 
   // Merk at dette er en GET request, og ikke en POST request!
 

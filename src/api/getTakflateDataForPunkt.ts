@@ -4,8 +4,8 @@ export const getTakflateDataForPunkt = async (x: number, y: number) => {
 
   // TODO: Fullfør/endre koden for hente og returnere takflatedata for et punkt
 
-    // Hint: Du kan se på getAdresseFromSearchText og getHoydeFromPunkt for å få en idé om hvordan
-    // dette kan gjøres.
+  // Hint: Du kan se på getAdresseFromSearchText og getHoydeFromPunkt for å få en idé om hvordan
+  // dette kan gjøres.
 
   // Merk at dette er en GET request, og ikke en POST request!
 
