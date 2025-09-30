@@ -5,7 +5,6 @@ import { getHoydeFromPunkt } from '../api/getHoydeFromPunkt';
 import { useEffect, useState } from 'react';
 import { Overlay } from './Overlay';
 import DrawComponent from './DrawComponent';
-import { SearchBar, type Address } from './SearchBar';
 
 const TRONDHEIM_COORDS: [number, number] = [10.40565401, 63.4156575];
 
