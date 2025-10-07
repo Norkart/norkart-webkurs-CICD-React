@@ -51,7 +51,7 @@ Sjekk at du har fått installert node med npm!
 2. I en terminal: Finn fram til fillokasjonen hvor dere vil lagre prosjektet og klon repoet (deres egen versjon av prosjektet som dere nettopp forket):
 
 ```
-   git clone https://github.com/<YOUR_GITHUB_USERNAME>/norkart-webkurs-CICD-React.git
+   git clone https://github.com/<YOUR_GITHUB_USERNAME>/norkart-webkurs-React.git
 ```
 
 3. Åpne VSCode og åpne prosjektet du nettopp clonet.
