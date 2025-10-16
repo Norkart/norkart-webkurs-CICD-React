@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Overlay } from './Overlay';
 import DrawComponent from './DrawComponent';
 
-const TRONDHEIM_COORDS: [number, number] = [10.40565401, 63.4156575];
+const UIO_COORDS: [number, number] = [10.71788676054797, 59.94334031458817];
 
 export const MapLibreMap = () => {
   const [pointHoyde, setPointHoydeAtPunkt] = useState<number | undefined>(
@@ -27,8 +27,8 @@ export const MapLibreMap = () => {
   return (
     <RMap
       minZoom={6}
-      initialCenter={TRONDHEIM_COORDS}
-      initialZoom={12}
+      initialCenter={UIO_COORDS}
+      initialZoom={15}
       mapStyle="https://openmaptiles.geo.data.gouv.fr/styles/osm-bright/style.json"
       style={{
         height: `calc(100dvh - var(--header-height))`,
