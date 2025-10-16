@@ -1,6 +1,6 @@
 # Velkommen til workshop med Norkart!
 
-Vi gir dere en enkel fremgangsmåte på å sette opp en React-applikasjon med et Maplibre-kart. Deretter skal dere utvide kartfunksjonaliten til applikasjonen ved å bruke data fra Norkart. Her kan dere velge mellom forskjellige oppgaver, eller lage noe helt selv!
+Vi gir dere en enkel fremgangsmåte på å sette opp en React-applikasjon med et Maplibre-kart. Deretter skal dere utvide kartfunksjonaliteten til applikasjonen ved å bruke data fra Norkart. Her kan dere velge mellom forskjellige oppgaver, eller lage noe helt selv!
 
 Still spørsmål dersom dere står fast eller noe er uklart! 😄
 
@@ -9,7 +9,7 @@ Lykke til!
 ## Nyttige lenker:
 
 - React-dokumentasjon: https://react.dev/reference/react
-- TypesScript-dokumentasjon: https://www.typescriptlang.org/docs/
+- TypeScript-dokumentasjon: https://www.typescriptlang.org/docs/
 - Material UI (MUI) dokumentasjon: https://mui.com/material-ui/getting-started/
 - MapLibre-dokumentasjon: https://maplibre-react-components.pentatrion.com/getting-started
 
@@ -94,14 +94,14 @@ Under finner du forskjellige oppgaver som kan gjøres i hvilken som helst rekkef
 
 ### OPPGAVE 1: Følg tutorialen til Maplibre og legg til mer kartfunksjonalitet i appen
 
-Gjerne ta utgangspunkt i [Maplibre sin torturial](https://maplibre-react-components.pentatrion.com/tutorial) for å legge til flere funksjoner i appen.
+Gjerne ta utgangspunkt i [Maplibre sin tutorial](https://maplibre-react-components.pentatrion.com/tutorial) for å legge til flere funksjoner i appen.
 _ℹ️ Husk at vi bruker TypeScript og ikke JavaScript, så du må kanskje gjøre noen små endringer på koden i tutorialen for at det skal funke. Spør gjerne om hjelp!_
 
 ---
 
 ### Oppgave 2: Vis høyde i kartet basert på punkt
 
-Funksjonen [getHoydeFromPunkt.ts](/src/api/getHoydeFromPunkt.ts) kan benyttes til å hente høyde for et geografisk punkt, som vist kart-komponenten [MapLibreMap.tsx](/src/components/MapLibreMap.tsx), hvor høyden for et punkt lagres i staten "pointHoyde" og vises konsollen i nettleseren når man klikker i kartet. Din oppgave er å implementere en visning av denne høyden i applikasjonen.
+Funksjonen [getHoydeFromPunkt.ts](/src/api/getHoydeFromPunkt.ts) kan benyttes til å hente høyde for et geografisk punkt, som vist i kart-komponenten [MapLibreMap.tsx](/src/components/MapLibreMap.tsx), hvor høyden for et punkt lagres i staten "pointHoyde" og vises konsollen i nettleseren når man klikker i kartet. Din oppgave er å implementere en visning av denne høyden i applikasjonen.
 
 Her kan du for eksempel benytte deg av MapLibre-komponenten [RPopup](https://maplibre-react-components.pentatrion.com/components/rpopup), eller lage en egen komponent ved siden av eller under kartet som viser latitude, longitude og høyde for valgt punkt. Da kan man for eksempel bruke MUI-komponenten [Card](https://mui.com/material-ui/react-card/) eller legge inn detaljene direkte inn i Overlay-komponenten.
 
@@ -244,7 +244,7 @@ API-et returnerer også andre data knyttet til en bygning. Kanskje du kan vise d
 
 #### Ekstraoppgave:
 
-Dersom du har implementert adressesøk (se [Oppgave 2](#oppgave-2-implementer-søk-etter-adresse)), kan du bruke posisjonen i Adresse-objektet til å hente en bygning på adressen og vise dette i kartet!
+Dersom du har implementert adressesøk (se [Oppgave 3](#oppgave-3-implementer-søk-etter-adresse)), kan du bruke posisjonen i Adresse-objektet til å hente en bygning på adressen og vise dette i kartet!
 
 #### Ekstraoppgave:
 
@@ -256,13 +256,13 @@ Norkart har også et API-endepunkt for Risiko- og sårbarhetsdata (ROS-data) for
 
 Implementer funksjonen [getTakflateDataForPunkt](/src/api/getTakflateDataForPunkt.ts) for å hente solmengde-data for et tak ved et punkt.
 
-Når implementert kan du modifisere funksjonen onMapClick i [MapLibreMap](/src/components/MapLibreMap.tsx)-komponenten for å hente solmengde-data for et tak ved et valgt punkt i kartet. Respons-objektet inneholder blant annet en geometri som kan vises i kartet (se [oppgave 3](#oppgave-3-vis-bygninger-i-kartet) for å se hvordan dette kan gjøres).
+Når implementert kan du modifisere funksjonen onMapClick i [MapLibreMap](/src/components/MapLibreMap.tsx)-komponenten for å hente solmengde-data for et tak ved et valgt punkt i kartet. Respons-objektet inneholder blant annet en geometri som kan vises i kartet (se [oppgave 4](#oppgave-4-vis-bygninger-i-kartet) for å se hvordan dette kan gjøres).
 
 I tillegg innholder responsen den beregnede solmengden (i kWh/m^2) som treffer taket i en gitt måned. Denne informasjonen kan for eksempel vises ved hjelp av komponenten [MUI Table](https://mui.com/material-ui/react-table/).
 
 #### Ekstraoppgave:
 
-Dersom du har implementert [getBygningAtPunkt](/src/api/getBygningAtPunkt.ts) (se [oppgave 3](#oppgave-3-vis-bygninger-i-kartet)), kan du benytte bygningsnummeret som returneres fra API-et til å hente solmengde-data for alle takene på en valgt bygning. For å gjøre dette må du implementere [getTakflateDataForBygning](/src/api/getTakflateDataForBygning.ts). Responsen fra dette API-kallet kan brukes både til å vise alle tak i kartet og til å vise total solmengde på alle tak ved forskjellige tider av året.
+Dersom du har implementert [getBygningAtPunkt](/src/api/getBygningAtPunkt.ts) (se [oppgave 4](#oppgave-4-vis-bygninger-i-kartet)), kan du benytte bygningsnummeret som returneres fra API-et til å hente solmengde-data for alle takene på en valgt bygning. For å gjøre dette må du implementere [getTakflateDataForBygning](/src/api/getTakflateDataForBygning.ts). Responsen fra dette API-kallet kan brukes både til å vise alle tak i kartet og til å vise total solmengde på alle tak ved forskjellige tider av året.
 
 ### OPPGAVE 6: Gjør noe med andre, åpne geografiske data
 
