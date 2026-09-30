@@ -11,7 +11,6 @@ import {
   RSource,
   useMap,
 } from 'maplibre-react-components';
-import { getHoydeFromPunkt } from '../api/getHoydeFromPunkt';
 import { useEffect, useRef, useState } from 'react';
 import { Overlay } from './Overlay';
 import DrawComponent from './DrawComponent';
@@ -20,6 +19,7 @@ import { ResultDialog } from './ResultDialog';
 import { HighscoreDialog } from './HighscoreDialog';
 import { MiniGameHud } from './MiniGameHud';
 import { IntroDialog } from './IntroDialog';
+import { getElevationFromMapterhorn } from '../api/getElevationFromMapterhorn';
 
 const NORWAY_CENTER: [number, number] = [10.5, 64.5];
 const TARGET_HEIGHT_MIN = 0;
@@ -45,7 +45,15 @@ const KARTVERKET_STYLE: StyleSpecification = {
       maxzoom: 18,
       attribution: '© Kartverket',
     },
+    [TERRAIN_SOURCE_ID]: {
+      type: 'raster-dem',
+      tiles: [TERRAIN_TILE_URL],
+      encoding: 'terrarium',
+      tileSize: 512,
+      attribution: TERRAIN_ATTRIBUTION,
+    },
   },
+  terrain: { source: TERRAIN_SOURCE_ID, exaggeration: 1 },
   layers: [
     {
       id: 'background',
@@ -81,6 +89,14 @@ export const MapLibreMap = () => {
   const [mapError, setMapError] = useState<string | null>(null);
   const gameId = useRef(0);
   const requestInFlight = useRef(false);
+  const mountedRef = useRef(true);
+
+  useEffect(() => {
+    return () => {
+      mountedRef.current = false;
+      gameId.current += 1;
+    };
+  }, []);
 
   const onMapClick = async (e: MapLayerMouseEvent) => {
     if (requestInFlight.current || attempts.length >= 3) {
@@ -103,17 +119,13 @@ export const MapLibreMap = () => {
     const currentGameId = gameId.current;
 
     try {
-      const hoyder = await getHoydeFromPunkt(e.lngLat.lng, e.lngLat.lat);
-      const hoyde = hoyder[0]?.Z;
+      const hoyde = await getElevationFromMapterhorn(point.lng, point.lat);
 
-      if (
-        currentGameId !== gameId.current ||
-        typeof hoyde !== 'number' ||
-        !Number.isFinite(hoyde)
-      ) {
-        if (currentGameId === gameId.current) {
-          setError('Fant ikke høyde for punktet. Prøv et annet sted.');
-        }
+      if (currentGameId !== gameId.current) {
+        return;
+      }
+      if (hoyde === null) {
+        setError('Høydedataene er ikke ferdig lastet. Vent litt og prøv igjen.');
         return;
       }
 
@@ -386,23 +398,6 @@ function TerrainManager({
         return;
       }
 
-      if (!enabled) {
-        map.setTerrain(null);
-        if (preservedCamera.current) {
-          map.jumpTo({
-            center: preservedCamera.current.center,
-            zoom: preservedCamera.current.zoom,
-            pitch: preservedCamera.current.pitch,
-            bearing: preservedCamera.current.bearing,
-          });
-        } else {
-          map.easeTo({ pitch: 0, bearing: 0, duration: 500 });
-        }
-        onError(null);
-        terrainAppliedToStyle = true;
-        return;
-      }
-
       try {
         if (!map.getSource(TERRAIN_SOURCE_ID)) {
           map.addSource(TERRAIN_SOURCE_ID, {
@@ -416,10 +411,21 @@ function TerrainManager({
 
         map.setTerrain({
           source: TERRAIN_SOURCE_ID,
-          exaggeration: 1.5,
+          exaggeration: enabled ? 1.5 : 1,
         });
         map.setMaxPitch(80);
-        if (preservedCamera.current) {
+        if (!enabled) {
+          if (preservedCamera.current) {
+            map.jumpTo({
+              center: preservedCamera.current.center,
+              zoom: preservedCamera.current.zoom,
+              pitch: 0,
+              bearing: preservedCamera.current.bearing,
+            });
+          } else {
+            map.easeTo({ pitch: 0, duration: 500 });
+          }
+        } else if (preservedCamera.current) {
           map.jumpTo({
             center: preservedCamera.current.center,
             zoom: preservedCamera.current.zoom,
@@ -432,8 +438,7 @@ function TerrainManager({
         onError(null);
         terrainAppliedToStyle = true;
       } catch (error) {
-        console.error('Kunne ikke aktivere Mapterhorn-terreng:', error);
-        map.setTerrain(null);
+        console.error('Kunne ikke koble til Mapterhorn-terreng:', error);
         onError('3D-terreng kunne ikke lastes. Kartet fungerer fortsatt i 2D.');
       }
     };
