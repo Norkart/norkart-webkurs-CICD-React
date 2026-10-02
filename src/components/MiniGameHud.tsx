@@ -1,5 +1,8 @@
 import { Button, Paper, Stack, Typography } from '@mui/material';
+import type { CSSProperties } from 'react';
 import type { Attempt } from './GamePanel';
+import type { BasemapVariant } from './basemap';
+import { BASEMAP_OPTIONS } from './basemap';
 
 type MiniGameHudProps = {
   targetHeight: number;
@@ -8,6 +11,8 @@ type MiniGameHudProps = {
   terrainEnabled: boolean;
   onOpenPanel: () => void;
   onToggleTerrain: () => void;
+  basemapVariant: BasemapVariant;
+  onBasemapChange: (variant: BasemapVariant) => void;
 };
 
 export function MiniGameHud({
@@ -17,6 +22,8 @@ export function MiniGameHud({
   terrainEnabled,
   onOpenPanel,
   onToggleTerrain,
+  basemapVariant,
+  onBasemapChange,
 }: MiniGameHudProps) {
   const currentAttempt = Math.min(attempts.length + 1, 3);
 
@@ -87,6 +94,20 @@ export function MiniGameHud({
         >
           ⛰️ {terrainEnabled ? '3D terreng på' : '3D terreng'}
         </Button>
+        <select
+          aria-label="Velg bakgrunnskart"
+          value={basemapVariant}
+          onChange={(event) =>
+            onBasemapChange(event.target.value as BasemapVariant)
+          }
+          style={basemapSelectStyle}
+        >
+          {BASEMAP_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>
+              🗺️ {option.label}
+            </option>
+          ))}
+        </select>
         <Button
           fullWidth
           size="small"
@@ -120,4 +141,15 @@ const panelToggleButtonSx = {
   '&:hover, &:focus-visible': {
     backgroundColor: 'rgba(255,255,255,0.18)',
   },
+};
+
+const basemapSelectStyle: CSSProperties = {
+  width: '100%',
+  minHeight: 36,
+  padding: '7px 10px',
+  border: '1px solid rgba(255,255,255,0.35)',
+  borderRadius: 10,
+  color: '#073b5c',
+  background: '#e0f7f5',
+  fontWeight: 800,
 };

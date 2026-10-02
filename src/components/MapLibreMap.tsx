@@ -11,7 +11,7 @@ import {
   RSource,
   useMap,
 } from 'maplibre-react-components';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Overlay } from './Overlay';
 import DrawComponent from './DrawComponent';
 import { GamePanel, type Attempt, type HighscoreEntry } from './GamePanel';
@@ -20,6 +20,10 @@ import { HighscoreDialog } from './HighscoreDialog';
 import { MiniGameHud } from './MiniGameHud';
 import { IntroDialog } from './IntroDialog';
 import { getElevationFromMapterhorn } from '../api/getElevationFromMapterhorn';
+import {
+  type BasemapVariant,
+  KARTVERKET_TILE_TEMPLATE,
+} from './basemap';
 
 const NORWAY_CENTER: [number, number] = [10.5, 64.5];
 const TARGET_HEIGHT_MIN = 0;
@@ -32,14 +36,14 @@ const TERRAIN_ATTRIBUTION = 'Terrain data: Mapterhorn and data providers';
 const TERRAIN_PITCH = 55;
 const START_VIEW_ZOOM = 4.5;
 type GuessPoint = { lng: number; lat: number };
-const KARTVERKET_TILE_URL =
-  'https://cache.kartverket.no/v1/wmts/1.0.0/topo/default/webmercator/{z}/{y}/{x}.png';
-const KARTVERKET_STYLE: StyleSpecification = {
+const createKartverketStyle = (variant: BasemapVariant): StyleSpecification => {
+  const tileUrl = KARTVERKET_TILE_TEMPLATE.replace('{variant}', variant);
+  return {
   version: 8,
   sources: {
     kartverket: {
       type: 'raster',
-      tiles: [KARTVERKET_TILE_URL],
+      tiles: [tileUrl],
       tileSize: 256,
       minzoom: 0,
       maxzoom: 18,
@@ -68,6 +72,7 @@ const KARTVERKET_STYLE: StyleSpecification = {
       maxzoom: 18,
     },
   ],
+  };
 };
 
 export const MapLibreMap = () => {
@@ -87,6 +92,11 @@ export const MapLibreMap = () => {
   const [viewResetKey, setViewResetKey] = useState(0);
   const [introOpen, setIntroOpen] = useState(true);
   const [mapError, setMapError] = useState<string | null>(null);
+  const [basemapVariant, setBasemapVariant] = useState<BasemapVariant>('topo');
+  const initialBasemapStyle = useMemo(
+    () => createKartverketStyle('topo'),
+    []
+  );
   const gameId = useRef(0);
   const requestInFlight = useRef(false);
   const mountedRef = useRef(true);
@@ -231,7 +241,7 @@ export const MapLibreMap = () => {
       minZoom={3}
       initialCenter={NORWAY_CENTER}
       initialZoom={4.5}
-      mapStyle={KARTVERKET_STYLE}
+      mapStyle={initialBasemapStyle}
       style={{
         height: `calc(100dvh - var(--header-height))`,
       }}
@@ -303,6 +313,8 @@ export const MapLibreMap = () => {
             onToggleTerrain={() => setTerrainEnabled((enabled) => !enabled)}
             onHidePanel={() => setPanelVisible(false)}
             bestAttemptIndex={bestAttemptIndex}
+            basemapVariant={basemapVariant}
+            onBasemapChange={setBasemapVariant}
           />
         ) : (
           <MiniGameHud
@@ -312,6 +324,8 @@ export const MapLibreMap = () => {
             terrainEnabled={terrainEnabled}
             onOpenPanel={() => setPanelVisible(true)}
             onToggleTerrain={() => setTerrainEnabled((enabled) => !enabled)}
+            basemapVariant={basemapVariant}
+            onBasemapChange={setBasemapVariant}
           />
         )}
         </div>
@@ -344,6 +358,7 @@ export const MapLibreMap = () => {
         onError={setTerrainError}
       />
       <MapViewResetManager resetKey={viewResetKey} />
+      <MapStyleCameraManager basemapVariant={basemapVariant} />
       <MapDetailManager />
       <DrawComponent />
     </RMap>
@@ -366,6 +381,47 @@ function MapViewResetManager({ resetKey }: { resetKey: number }) {
       bearing: 0,
     });
   }, [map, resetKey]);
+
+  return null;
+}
+
+function MapStyleCameraManager({ basemapVariant }: { basemapVariant: BasemapVariant }) {
+  const map = useMap();
+  const previousVariant = useRef(basemapVariant);
+  const camera = useRef<{
+    center: [number, number];
+    zoom: number;
+    pitch: number;
+    bearing: number;
+  } | null>(null);
+
+  useEffect(() => {
+    if (previousVariant.current === basemapVariant) return;
+    previousVariant.current = basemapVariant;
+    camera.current = {
+      center: [map.getCenter().lng, map.getCenter().lat],
+      zoom: map.getZoom(),
+      pitch: map.getPitch(),
+      bearing: map.getBearing(),
+    };
+
+    if (map.getTerrain()) {
+      map.setTerrain(null);
+    }
+
+    const restoreCamera = () => {
+      if (!camera.current) return;
+      map.jumpTo(camera.current);
+      camera.current = null;
+      map.off('style.load', restoreCamera);
+    };
+
+    map.on('style.load', restoreCamera);
+    map.setStyle(createKartverketStyle(basemapVariant), { diff: false });
+    return () => {
+      map.off('style.load', restoreCamera);
+    };
+  }, [basemapVariant, map]);
 
   return null;
 }

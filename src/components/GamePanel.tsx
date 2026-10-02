@@ -12,6 +12,9 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
+import type { CSSProperties } from 'react';
+import type { BasemapVariant } from './basemap';
+import { BASEMAP_OPTIONS } from './basemap';
 
 export type Attempt = {
   height: number;
@@ -41,6 +44,8 @@ type GamePanelProps = {
   onToggleTerrain: () => void;
   onHidePanel: () => void;
   bestAttemptIndex?: number;
+  basemapVariant: BasemapVariant;
+  onBasemapChange: (variant: BasemapVariant) => void;
 };
 
 export function GamePanel({
@@ -57,6 +62,8 @@ export function GamePanel({
   onToggleTerrain,
   onHidePanel,
   bestAttemptIndex,
+  basemapVariant,
+  onBasemapChange,
 }: GamePanelProps) {
   return (
     <Card
@@ -235,6 +242,23 @@ export function GamePanel({
           >
             {terrainEnabled ? '🌄 3D terreng på' : '🌄 3D terreng'}
           </Button>
+          <label style={basemapLabelStyle}>
+            Bakgrunnskart
+            <select
+              aria-label="Velg bakgrunnskart"
+              value={basemapVariant}
+              onChange={(event) =>
+                onBasemapChange(event.target.value as BasemapVariant)
+              }
+              style={basemapSelectStyle}
+            >
+              {BASEMAP_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
           {isLoading && (
             <Stack direction="row" spacing={1} alignItems="center">
               <CircularProgress size={18} sx={{ color: '#0f9f9a' }} />
@@ -298,6 +322,26 @@ const panelToggleButtonSx = {
   '&:hover, &:focus-visible': {
     backgroundColor: '#e0f7f5',
   },
+};
+
+const basemapLabelStyle: CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  gap: 12,
+  color: '#39727b',
+  fontSize: '0.8rem',
+  fontWeight: 800,
+};
+
+const basemapSelectStyle: CSSProperties = {
+  minWidth: 145,
+  padding: '8px 10px',
+  border: '1px solid #9ccfd0',
+  borderRadius: 10,
+  color: '#075985',
+  background: '#f4fbfa',
+  fontWeight: 700,
 };
 
 function attemptColor(deviation?: number) {
