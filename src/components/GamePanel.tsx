@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import type { CSSProperties } from 'react';
 import type { BasemapVariant } from './basemap';
-import { BASEMAP_OPTIONS } from './basemap';
+import { BASEMAP_OPTIONS, SATELLITE_ATTRIBUTION } from './basemap';
 
 export type Attempt = {
   height: number;
@@ -65,6 +65,12 @@ export function GamePanel({
   basemapVariant,
   onBasemapChange,
 }: GamePanelProps) {
+  const basemapOptions = BASEMAP_OPTIONS.filter(
+    (option) =>
+      option.value !== 'orto' ||
+      Boolean(import.meta.env.VITE_NORGEIBILDER_TOKEN)
+  );
+
   return (
     <Card
       elevation={0}
@@ -240,7 +246,7 @@ export function GamePanel({
               },
             }}
           >
-            {terrainEnabled ? '🌄 3D terreng på' : '🌄 3D terreng'}
+            {terrainEnabled ? '🌄 3D TERRENG PÅ' : '🌄 3D TERRENG'}
           </Button>
           <label style={basemapLabelStyle}>
             Bakgrunnskart
@@ -252,12 +258,32 @@ export function GamePanel({
               }
               style={basemapSelectStyle}
             >
-              {BASEMAP_OPTIONS.map((option) => (
+              {basemapOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
               ))}
             </select>
+            {basemapOptions
+              .filter((option) => option.value === basemapVariant)
+              .map((option) => (
+                <Typography
+                  key={option.value}
+                  variant="caption"
+                  sx={{ display: 'block', color: '#52727a', mt: 0.4 }}
+                >
+                  {option.description}
+                  {option.recommended ? ' Anbefalt for spillet' : ''}
+                </Typography>
+              ))}
+            {basemapVariant === 'satellite' && (
+              <Typography
+                variant="caption"
+                sx={{ display: 'block', color: '#52727a', mt: 0.4 }}
+              >
+                {SATELLITE_ATTRIBUTION}
+              </Typography>
+            )}
           </label>
           {isLoading && (
             <Stack direction="row" spacing={1} alignItems="center">

@@ -2,7 +2,7 @@ import { Button, Paper, Stack, Typography } from '@mui/material';
 import type { CSSProperties } from 'react';
 import type { Attempt } from './GamePanel';
 import type { BasemapVariant } from './basemap';
-import { BASEMAP_OPTIONS } from './basemap';
+import { BASEMAP_OPTIONS, SATELLITE_ATTRIBUTION } from './basemap';
 
 type MiniGameHudProps = {
   targetHeight: number;
@@ -92,7 +92,7 @@ export function MiniGameHud({
           aria-label={terrainEnabled ? 'Slå av 3D-terreng' : 'Slå på 3D-terreng'}
           sx={quickButtonSx(terrainEnabled)}
         >
-          ⛰️ {terrainEnabled ? '3D terreng på' : '3D terreng'}
+          ⛰️ {terrainEnabled ? '3D TERRENG PÅ' : '3D TERRENG'}
         </Button>
         <select
           aria-label="Velg bakgrunnskart"
@@ -102,12 +102,24 @@ export function MiniGameHud({
           }
           style={basemapSelectStyle}
         >
-          {BASEMAP_OPTIONS.map((option) => (
+          {BASEMAP_OPTIONS.filter(
+            (option) =>
+              option.value !== 'orto' ||
+              Boolean(import.meta.env.VITE_NORGEIBILDER_TOKEN)
+          ).map((option) => (
             <option key={option.value} value={option.value}>
-              🗺️ {option.label}
+              {option.value === 'satellite' ? '' : '🗺️ '}
+              {option.label}
             </option>
           ))}
         </select>
+        {basemapVariant === 'satellite' && (
+          <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.82)' }}>
+            Satellittbilder uten høydeledetråder · Anbefalt for spillet
+            <br />
+            {SATELLITE_ATTRIBUTION}
+          </Typography>
+        )}
         <Button
           fullWidth
           size="small"

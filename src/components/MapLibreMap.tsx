@@ -23,6 +23,9 @@ import { getElevationFromMapterhorn } from '../api/getElevationFromMapterhorn';
 import {
   type BasemapVariant,
   KARTVERKET_TILE_TEMPLATE,
+  NORGEIBILDER_TILE_TEMPLATE,
+  SATELLITE_ATTRIBUTION,
+  SATELLITE_TILE_TEMPLATE,
 } from './basemap';
 
 const NORWAY_CENTER: [number, number] = [10.5, 64.5];
@@ -36,18 +39,34 @@ const TERRAIN_ATTRIBUTION = 'Terrain data: Mapterhorn and data providers';
 const TERRAIN_PITCH = 55;
 const START_VIEW_ZOOM = 4.5;
 type GuessPoint = { lng: number; lat: number };
+const NORGEIBILDER_TOKEN = import.meta.env.VITE_NORGEIBILDER_TOKEN;
+
 const createKartverketStyle = (variant: BasemapVariant): StyleSpecification => {
-  const tileUrl = KARTVERKET_TILE_TEMPLATE.replace('{variant}', variant);
+  const isOrthophoto = variant === 'orto';
+  const isSatellite = variant === 'satellite';
+  const rasterSourceId = isSatellite ? 'satellite' : 'kartverket';
+  const tileUrl = isSatellite
+    ? SATELLITE_TILE_TEMPLATE
+    : isOrthophoto
+    ? NORGEIBILDER_TILE_TEMPLATE.replace(
+        '{token}',
+        NORGEIBILDER_TOKEN ?? ''
+      )
+    : KARTVERKET_TILE_TEMPLATE.replace('{variant}', variant);
   return {
   version: 8,
   sources: {
-    kartverket: {
+    [rasterSourceId]: {
       type: 'raster',
       tiles: [tileUrl],
       tileSize: 256,
       minzoom: 0,
-      maxzoom: 18,
-      attribution: '© Kartverket',
+      maxzoom: isSatellite ? 13 : 18,
+      attribution: isSatellite
+        ? SATELLITE_ATTRIBUTION
+        : isOrthophoto
+        ? '© Kartverket / Norge i bilder'
+        : '© Kartverket',
     },
     [TERRAIN_SOURCE_ID]: {
       type: 'raster-dem',
@@ -57,7 +76,6 @@ const createKartverketStyle = (variant: BasemapVariant): StyleSpecification => {
       attribution: TERRAIN_ATTRIBUTION,
     },
   },
-  terrain: { source: TERRAIN_SOURCE_ID, exaggeration: 1 },
   layers: [
     {
       id: 'background',
@@ -67,7 +85,7 @@ const createKartverketStyle = (variant: BasemapVariant): StyleSpecification => {
     {
       id: 'kartverket-topo',
       type: 'raster',
-      source: 'kartverket',
+      source: rasterSourceId,
       minzoom: 0,
       maxzoom: 18,
     },
@@ -88,6 +106,7 @@ export const MapLibreMap = () => {
   const [resultSaved, setResultSaved] = useState(false);
   const [terrainEnabled, setTerrainEnabled] = useState(false);
   const [terrainError, setTerrainError] = useState<string | null>(null);
+  const [basemapError, setBasemapError] = useState<string | null>(null);
   const [panelVisible, setPanelVisible] = useState(true);
   const [viewResetKey, setViewResetKey] = useState(0);
   const [introOpen, setIntroOpen] = useState(true);
@@ -100,6 +119,10 @@ export const MapLibreMap = () => {
   const gameId = useRef(0);
   const requestInFlight = useRef(false);
   const mountedRef = useRef(true);
+  const handleBasemapChange = (variant: BasemapVariant) => {
+    setBasemapError(null);
+    setBasemapVariant(variant);
+  };
 
   useEffect(() => {
     return () => {
@@ -247,6 +270,15 @@ export const MapLibreMap = () => {
       }}
       onClick={onMapClick}
       onError={(event) => {
+        if (
+          basemapVariant === 'satellite' &&
+          'sourceId' in event &&
+          event.sourceId === 'satellite'
+        ) {
+          setBasemapError('Satellittkartet kunne ikke lastes. Topografisk kart vises.');
+          setBasemapVariant('topo');
+          return;
+        }
         console.error('Kartverket-kartflis feilet:', event.error);
         setMapError('Kartverket-kartet kunne ikke lastes.');
       }}
@@ -303,7 +335,7 @@ export const MapLibreMap = () => {
             targetHeight={targetHeight}
             attempts={attempts}
             isLoading={isLoading}
-            error={mapError ?? error ?? terrainError}
+            error={basemapError ?? mapError ?? error ?? terrainError}
             score={score}
             deviation={deviation}
             onNewGame={startNewGame}
@@ -314,7 +346,7 @@ export const MapLibreMap = () => {
             onHidePanel={() => setPanelVisible(false)}
             bestAttemptIndex={bestAttemptIndex}
             basemapVariant={basemapVariant}
-            onBasemapChange={setBasemapVariant}
+            onBasemapChange={handleBasemapChange}
           />
         ) : (
           <MiniGameHud
@@ -325,7 +357,7 @@ export const MapLibreMap = () => {
             onOpenPanel={() => setPanelVisible(true)}
             onToggleTerrain={() => setTerrainEnabled((enabled) => !enabled)}
             basemapVariant={basemapVariant}
-            onBasemapChange={setBasemapVariant}
+            onBasemapChange={handleBasemapChange}
           />
         )}
         </div>
@@ -358,7 +390,9 @@ export const MapLibreMap = () => {
         onError={setTerrainError}
       />
       <MapViewResetManager resetKey={viewResetKey} />
-      <MapStyleCameraManager basemapVariant={basemapVariant} />
+      <MapStyleCameraManager
+        basemapVariant={basemapVariant}
+      />
       <MapDetailManager />
       <DrawComponent />
     </RMap>
@@ -385,7 +419,11 @@ function MapViewResetManager({ resetKey }: { resetKey: number }) {
   return null;
 }
 
-function MapStyleCameraManager({ basemapVariant }: { basemapVariant: BasemapVariant }) {
+function MapStyleCameraManager({
+  basemapVariant,
+}: {
+  basemapVariant: BasemapVariant;
+}) {
   const map = useMap();
   const previousVariant = useRef(basemapVariant);
   const camera = useRef<{
@@ -465,31 +503,29 @@ function TerrainManager({
           });
         }
 
-        map.setTerrain({
-          source: TERRAIN_SOURCE_ID,
-          exaggeration: enabled ? 1.5 : 1,
-        });
-        map.setMaxPitch(80);
         if (!enabled) {
+          map.setTerrain(null);
+          map.easeTo({
+            pitch: 0,
+            bearing: 0,
+            duration: 600,
+          });
+        } else {
+          map.setTerrain({
+            source: TERRAIN_SOURCE_ID,
+            exaggeration: 1.5,
+          });
+          map.setMaxPitch(80);
           if (preservedCamera.current) {
             map.jumpTo({
               center: preservedCamera.current.center,
               zoom: preservedCamera.current.zoom,
-              pitch: 0,
+              pitch: preservedCamera.current.pitch,
               bearing: preservedCamera.current.bearing,
             });
           } else {
-            map.easeTo({ pitch: 0, duration: 500 });
+            map.easeTo({ pitch: TERRAIN_PITCH, duration: 800 });
           }
-        } else if (preservedCamera.current) {
-          map.jumpTo({
-            center: preservedCamera.current.center,
-            zoom: preservedCamera.current.zoom,
-            pitch: preservedCamera.current.pitch,
-            bearing: preservedCamera.current.bearing,
-          });
-        } else {
-          map.easeTo({ pitch: TERRAIN_PITCH, duration: 800 });
         }
         onError(null);
         terrainAppliedToStyle = true;

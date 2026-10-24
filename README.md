@@ -44,6 +44,15 @@ Spør gjerne om noe er uklart.
 
    **API-nøkkelen skal aldri lastes opp på GitHub — `.env` skal ikke committes!**
 
+   For å aktivere ortofoto som bakgrunnskart må du også legge til et token fra
+   [Norge i bilder](https://www.geonorge.no/nib):
+
+   ```
+   VITE_NORGEIBILDER_TOKEN=<ditt Norge i bilder-token>
+   ```
+
+   Uten dette tokenet vises ikke ortofoto som et valgbart bakgrunnskart.
+
 5. Kjør prosjektet:
 
    ```
